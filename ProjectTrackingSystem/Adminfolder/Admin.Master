@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="ProjectTrackingSystem.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html >
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 148px;
+        }
+        .auto-style3 {
+            color: #2C2979;
+        }
+    </style>
+</head>
+<body bgcolor="#dbdde0">
+    <form id="form1" runat="server">
+        <div>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Image/ATS.png" BorderColor="Black" BorderStyle="Solid" />
+                    </td>
+                    <td class="auto-style3">
+                        <h1>Project Tracking System</h1>
+                    </td>
+                    <td><span class="auto-style3">Welcome, </span>
+                        <asp:Label ID="Label1" runat="server" CssClass="auto-style3"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="16px" ImageUrl="~/Image/logout_1185552.png" CausesValidation="False" OnClick="ImageButton1_Click" Width="28px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style3">
+                        <asp:Menu ID="Menu1" runat="server" BackColor="#DBDDE0" BorderStyle="None" BorderWidth="2px" ForeColor="#3B3979" Orientation="Horizontal" StaticSubMenuIndent="16px">
+                            <Items>
+                                <asp:MenuItem Text="Add User" Value="Add User" NavigateUrl="~/Adminfolder/AddUser.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Edit User" Value="Edit User" NavigateUrl="~/Adminfolder/EditUser1.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Add Client Info" Value="Add Client Info" NavigateUrl="~/Adminfolder/ClientInfo.aspx"></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        <div>
+        </div>
+    </form>
+</body>
+</html>

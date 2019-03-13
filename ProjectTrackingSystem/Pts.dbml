@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PTS" Class="PtsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=hanouf;Initial Catalog=PTS;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PTSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Assigns" Member="Assigns">
+    <Type Name="Assign">
+      <Column Name="PMID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateofAssignment" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NumberofTechnicalEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TechnicalEmployee_Assign" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+      <Association Name="Project_Assign" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="ProjectManager_Assign" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TechnicalEmployee" Member="TechnicalEmployees">
+    <Type Name="TechnicalEmployee">
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TechnicalEmployee_Assign" Member="Assigns" ThisKey="TEID" OtherKey="TEID" Type="Assign" />
+      <Association Name="TechnicalEmployee_CaptureQuotation" Member="CaptureQuotations" ThisKey="TEID" OtherKey="TEID" Type="CaptureQuotation" />
+      <Association Name="TechnicalEmployee_Document" Member="Documents" ThisKey="TEID" OtherKey="TEID" Type="Document" />
+      <Association Name="TechnicalEmployee_PhaseCheckpoint" Member="PhaseCheckpoints" ThisKey="TEID" OtherKey="TEID" Type="PhaseCheckpoint" />
+      <Association Name="TechnicalEmployee_ProjectAttachment" Member="ProjectAttachments" ThisKey="TEID" OtherKey="TEID" Type="ProjectAttachment" />
+      <Association Name="TechnicalEmployee_Recruit" Member="Recruits" ThisKey="TEID" OtherKey="TEID" Type="Recruit" />
+      <Association Name="TechnicalEmployee_Submit" Member="Submits" ThisKey="TEID" OtherKey="TEID" Type="Submit" />
+      <Association Name="TechnicalEmployee_SubmittedBy" Member="SubmittedBies" ThisKey="TEID" OtherKey="TEID" Type="SubmittedBy" />
+      <Association Name="Employee_TechnicalEmployee" Member="Employee" ThisKey="TEID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attachment" Member="Attachments">
+    <Type Name="Attachment">
+      <Column Name="AttachmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Attachment_ProjectAttachment" Member="ProjectAttachments" ThisKey="AttachmentID" OtherKey="AttachmentID" Type="ProjectAttachment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CaptureQuotation" Member="CaptureQuotations">
+    <Type Name="CaptureQuotation">
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityNeeded" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BillofQuantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalSalesPrice" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentTerms" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PMID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CaptureQuotation_Submit" Member="Submits" ThisKey="QuotationID" OtherKey="QuotationID" Type="Submit" />
+      <Association Name="TechnicalEmployee_CaptureQuotation" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+      <Association Name="Item_CaptureQuotation" Member="Item" ThisKey="ItemID" OtherKey="ItemID" Type="Item" IsForeignKey="true" />
+      <Association Name="Project_CaptureQuotation" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="ProjectManager_CaptureQuotation" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Checkpoint]" Member="Checkpoints">
+    <Type Name="Checkpoint">
+      <Column Name="CheckpointID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Checkpoint_PhaseCheckpoint" Member="PhaseCheckpoints" ThisKey="CheckpointID" OtherKey="CheckpointID" Type="PhaseCheckpoint" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MobileNumer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Project" Member="Projects" ThisKey="ClientID" OtherKey="ClientID" Type="Project" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DesignDocument" Member="DesignDocuments">
+    <Type Name="DesignDocument">
+      <Column Name="DesignDocumentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Layout" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PMID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="DesignDocument_SubmittedBy" Member="SubmittedBies" ThisKey="DesignDocumentID" OtherKey="DesignDocumentID" Type="SubmittedBy" />
+      <Association Name="ProjectManager_DesignDocument" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Documents" Member="Documents">
+    <Type Name="Document">
+      <Column Name="PhaseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TechnicalEmployee_Document" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+      <Association Name="Phase_Document" Member="Phase" ThisKey="PhaseID" OtherKey="PhaseID" Type="Phase" IsForeignKey="true" />
+      <Association Name="Project_Document" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MobileNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HourRate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RateCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_TechnicalEmployee" Member="TechnicalEmployee" ThisKey="EmployeeID" OtherKey="TEID" Type="TechnicalEmployee" Cardinality="One" />
+      <Association Name="Employee_FinancialManager" Member="FinancialManager" ThisKey="EmployeeID" OtherKey="FMID" Type="FinancialManager" Cardinality="One" />
+      <Association Name="Employee_OperationalManager" Member="OperationalManager" ThisKey="EmployeeID" OtherKey="OMID" Type="OperationalManager" Cardinality="One" />
+      <Association Name="Employee_ProjectManager" Member="ProjectManager" ThisKey="EmployeeID" OtherKey="PMID" Type="ProjectManager" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Feedback" Member="Feedbacks">
+    <Type Name="Feedback">
+      <Column Name="FeedbackID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ActualGrade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Feedback_PMFeedback" Member="PMFeedbacks" ThisKey="FeedbackID" OtherKey="FeedbackID" Type="PMFeedback" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinancialManager" Member="FinancialManagers">
+    <Type Name="FinancialManager">
+      <Column Name="FMID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Employee_FinancialManager" Member="Employee" ThisKey="FMID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Item" Member="Items">
+    <Type Name="Item">
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Item_CaptureQuotation" Member="CaptureQuotations" ThisKey="ItemID" OtherKey="ItemID" Type="CaptureQuotation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OMAssign" Member="OMAssigns">
+    <Type Name="OMAssign">
+      <Column Name="OMID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PMID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="OperationalManager_OMAssign" Member="OperationalManager" ThisKey="OMID" OtherKey="OMID" Type="OperationalManager" IsForeignKey="true" />
+      <Association Name="Project_OMAssign" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="ProjectManager_OMAssign" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperationalManager" Member="OperationalManagers">
+    <Type Name="OperationalManager">
+      <Column Name="OMID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="OperationalManager_OMAssign" Member="OMAssigns" ThisKey="OMID" OtherKey="OMID" Type="OMAssign" />
+      <Association Name="OperationalManager_Project" Member="Projects" ThisKey="OMID" OtherKey="OMID" Type="Project" />
+      <Association Name="Employee_OperationalManager" Member="Employee" ThisKey="OMID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OutsourceLabor" Member="OutsourceLabors">
+    <Type Name="OutsourceLabor">
+      <Column Name="OutsourceGroupID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GroupTitle" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[UnitCost/Hour]" Member="UnitCost_Hour" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactPerson" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="OutsourceLabor_Recruit" Member="Recruits" ThisKey="OutsourceGroupID" OtherKey="OutsourceGroupID" Type="Recruit" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phase" Member="Phases">
+    <Type Name="Phase">
+      <Column Name="PhaseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExpectedEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActualEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReasonforDelay" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EstimatedCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActualCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhaseStatus" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Phase_Document" Member="Documents" ThisKey="PhaseID" OtherKey="PhaseID" Type="Document" />
+      <Association Name="Phase_PhaseCheckpoint" Member="PhaseCheckpoints" ThisKey="PhaseID" OtherKey="PhaseID" Type="PhaseCheckpoint" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhaseCheckpoint" Member="PhaseCheckpoints">
+    <Type Name="PhaseCheckpoint">
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PhaseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CheckpointID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Checkpoint_PhaseCheckpoint" Member="Checkpoint" ThisKey="CheckpointID" OtherKey="CheckpointID" Type="Checkpoint" IsForeignKey="true" />
+      <Association Name="Phase_PhaseCheckpoint" Member="Phase" ThisKey="PhaseID" OtherKey="PhaseID" Type="Phase" IsForeignKey="true" />
+      <Association Name="TechnicalEmployee_PhaseCheckpoint" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PMFeedback" Member="PMFeedbacks">
+    <Type Name="PMFeedback">
+      <Column Name="PMID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FeedbackID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateofSubmission" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalComments" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WieghtedGrade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Feedback_PMFeedback" Member="Feedback" ThisKey="FeedbackID" OtherKey="FeedbackID" Type="Feedback" IsForeignKey="true" />
+      <Association Name="Project_PMFeedback" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="ProjectManager_PMFeedback" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpectedStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActualStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpectedEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActualEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EstimatedCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActualCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OMID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Project_Assign" Member="Assigns" ThisKey="ProjectID" OtherKey="ProjectID" Type="Assign" />
+      <Association Name="Project_CaptureQuotation" Member="CaptureQuotations" ThisKey="ProjectID" OtherKey="ProjectID" Type="CaptureQuotation" />
+      <Association Name="Project_Document" Member="Documents" ThisKey="ProjectID" OtherKey="ProjectID" Type="Document" />
+      <Association Name="Project_OMAssign" Member="OMAssigns" ThisKey="ProjectID" OtherKey="ProjectID" Type="OMAssign" />
+      <Association Name="Project_PMFeedback" Member="PMFeedbacks" ThisKey="ProjectID" OtherKey="ProjectID" Type="PMFeedback" />
+      <Association Name="Project_ProjectAttachment" Member="ProjectAttachments" ThisKey="ProjectID" OtherKey="ProjectID" Type="ProjectAttachment" />
+      <Association Name="Project_Recruit" Member="Recruits" ThisKey="ProjectID" OtherKey="ProjectID" Type="Recruit" />
+      <Association Name="Project_SubmittedBy" Member="SubmittedBies" ThisKey="ProjectID" OtherKey="ProjectID" Type="SubmittedBy" />
+      <Association Name="Client_Project" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
+      <Association Name="OperationalManager_Project" Member="OperationalManager" ThisKey="OMID" OtherKey="OMID" Type="OperationalManager" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectAttachment" Member="ProjectAttachments">
+    <Type Name="ProjectAttachment">
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AttachmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Attachment_ProjectAttachment" Member="Attachment" ThisKey="AttachmentID" OtherKey="AttachmentID" Type="Attachment" IsForeignKey="true" />
+      <Association Name="Project_ProjectAttachment" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="TechnicalEmployee_ProjectAttachment" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProjectManager" Member="ProjectManagers">
+    <Type Name="ProjectManager">
+      <Column Name="PMID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ProjectManager_Assign" Member="Assigns" ThisKey="PMID" OtherKey="PMID" Type="Assign" />
+      <Association Name="ProjectManager_CaptureQuotation" Member="CaptureQuotations" ThisKey="PMID" OtherKey="PMID" Type="CaptureQuotation" />
+      <Association Name="ProjectManager_DesignDocument" Member="DesignDocuments" ThisKey="PMID" OtherKey="PMID" Type="DesignDocument" />
+      <Association Name="ProjectManager_OMAssign" Member="OMAssigns" ThisKey="PMID" OtherKey="PMID" Type="OMAssign" />
+      <Association Name="ProjectManager_PMFeedback" Member="PMFeedbacks" ThisKey="PMID" OtherKey="PMID" Type="PMFeedback" />
+      <Association Name="ProjectManager_PurchaseOrder" Member="PurchaseOrders" ThisKey="PMID" OtherKey="PMID" Type="PurchaseOrder" />
+      <Association Name="Employee_ProjectManager" Member="Employee" ThisKey="PMID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PurchaseOrder" Member="PurchaseOrders">
+    <Type Name="PurchaseOrder">
+      <Column Name="PurchaseOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PMID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PurchaseOrder_Submit" Member="Submits" ThisKey="PurchaseOrderID" OtherKey="PurchaseOrderID" Type="Submit" />
+      <Association Name="ProjectManager_PurchaseOrder" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Recruits" Member="Recruits">
+    <Type Name="Recruit">
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OutsourceGroupID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumberofLabors" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReasonForRecruitment" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="OutsourceLabor_Recruit" Member="OutsourceLabor" ThisKey="OutsourceGroupID" OtherKey="OutsourceGroupID" Type="OutsourceLabor" IsForeignKey="true" />
+      <Association Name="Project_Recruit" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="TechnicalEmployee_Recruit" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Submits" Member="Submits">
+    <Type Name="Submit">
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PurchaseOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CaptureQuotation_Submit" Member="CaptureQuotation" ThisKey="QuotationID" OtherKey="QuotationID" Type="CaptureQuotation" IsForeignKey="true" />
+      <Association Name="PurchaseOrder_Submit" Member="PurchaseOrder" ThisKey="PurchaseOrderID" OtherKey="PurchaseOrderID" Type="PurchaseOrder" IsForeignKey="true" />
+      <Association Name="TechnicalEmployee_Submit" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubmittedBy" Member="SubmittedBies">
+    <Type Name="SubmittedBy">
+      <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DesignDocumentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DesignDocument_SubmittedBy" Member="DesignDocument" ThisKey="DesignDocumentID" OtherKey="DesignDocumentID" Type="DesignDocument" IsForeignKey="true" />
+      <Association Name="Project_SubmittedBy" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
+      <Association Name="TechnicalEmployee_SubmittedBy" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

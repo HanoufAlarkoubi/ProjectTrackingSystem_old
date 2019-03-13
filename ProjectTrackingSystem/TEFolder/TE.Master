@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TE.master.cs" Inherits="ProjectTrackingSystem.TEFolder.TE" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+<body bgcolor="#dbdde0">
+    <form id="form1" runat="server">
+        <div>
+            <table class="auto-style5">
+                <tr>
+                    <td class="auto-style6">
+                        <asp:Image ID="Image1" runat="server" BorderColor="Black" BorderStyle="Solid" ImageUrl="~/Image/ATS.png" />
+                    </td>
+                    <td class="auto-style7">
+                        <h1>Project Tracking System</h1>
+                    </td>
+                    <td class="auto-style8">Welcome,
+                        <asp:Label ID="Label1" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="16px" ImageUrl="~/Image/logout_1185552.png" OnClick="ImageButton1_Click" Width="28px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>
+                        <hr />
+                        <br />
+                        <asp:Menu ID="Menu1" runat="server" ForeColor="#2C2979" Orientation="Horizontal">
+                            <Items>
+                                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/TEFolder/HomePageTE.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Upload Design Document" Value="Upload Design Document" NavigateUrl="~/TEFolder/DesignDocumentTE.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Outsource Labor" Value="New Item" NavigateUrl="~/TEFolder/OutsourceLaborTE.aspx"></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                        <hr />
+                    </td>
+                    <td class="auto-style9">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        <hr />
+        <span class="auto-style4" style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+            <br />
+            © Copyright 2019</span></form>
+</body>
+</html>

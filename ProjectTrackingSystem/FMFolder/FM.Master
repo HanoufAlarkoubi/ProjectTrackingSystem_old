@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FM.master.cs" Inherits="ProjectTrackingSystem.FMFolder.FM" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 165px;
+        }
+        .auto-style3 {
+            color: #2C2979;
+        }
+        .auto-style4 {
+            background-color: #DBDDE0;
+        }
+    </style>
+</head>
+<body bgcolor="#dbdde0">
+    <form id="form1" runat="server">
+        <div>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">
+                        <asp:Image ID="Image1" runat="server" BorderColor="Black" BorderStyle="Solid" ImageUrl="~/Image/ATS.png" />
+                    </td>
+                    <td>
+                        <h1 class="auto-style3">Project Tracking System</h1>
+                    </td>
+                    <td><span class="auto-style3">Welcome, </span>
+                        <asp:Label ID="Label1" runat="server" CssClass="auto-style3"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>
+                        <asp:Menu ID="Menu1" runat="server" ForeColor="#2C2979" Orientation="Horizontal">
+                            <Items>
+                                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/FMFolder/HomeFM.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Search" Value="Search" NavigateUrl="~/FMFolder/SearchProjectFM.aspx"></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <span class="auto-style4" style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+            © Copyright 2019</span><br />
+    </form>
+</body>
+</html>

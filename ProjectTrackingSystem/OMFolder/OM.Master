@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="OM.master.cs" Inherits="ProjectTrackingSystem.OMFolder.OM" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style3 {
+            color: #2C2979;
+        }
+        .auto-style4 {
+            width: 157px;
+        }
+        .auto-style5 {
+            width: 419px;
+        }
+        .auto-style6 {
+            width: 4307px;
+        }
+        .auto-style7 {
+            width: 1064px;
+        }
+    </style>
+</head>
+<body bgcolor="#dbdde0">
+    <form id="form1" runat="server">
+        <div>
+            
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Image/ATS.png" BorderColor="Black" BorderStyle="Solid" />
+                    </td>
+                    <td class="auto-style6">
+                        <h1 class="auto-style3">Project Tracking System</h1>
+                    </td>
+                    <td class="auto-style7">
+                        <span class="auto-style3">Welcome, </span>
+                        <asp:Label ID="Label1" runat="server" CssClass="auto-style3"></asp:Label>
+                    </td>
+                    <td class="auto-style5">
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="16px" ImageUrl="~/Image/logout_1185552.png" OnClick="ImageButton1_Click" Width="28px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style6">
+                        <hr />
+                        <asp:Menu ID="Menu1" runat="server" ForeColor="#2C2979" Orientation="Horizontal">
+                            <Items>
+                                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/OMFolder/HomeOM.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Create a new Project" Value="Create a new Project" NavigateUrl="~/OMFolder/CreateProject.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Assign PM to Project" Value="Assign PM to Project"></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                        <br />
+                        <hr />
+                    </td>
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
+                </tr>
+            </table>
+            
+        </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        <div>
+            <hr />
+            <span class="auto-style4" style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+            <br />
+            © Copyright 2019</span></div>
+    </form>
+</body>
+</html>
