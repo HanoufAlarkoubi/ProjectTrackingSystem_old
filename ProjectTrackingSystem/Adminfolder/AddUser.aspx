@@ -7,11 +7,21 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    <div class="jumbotron">
+  <h1>Add User</h1>
+  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+</div><div style="text-align:center">
+    <h2>Add User</h2>
+        </div>
+    <div>
+         <label for="inputFN" class="col-lg-2 control-label">First Name</label>
+    </div>
     <table class="auto-style1">
     <tr>
         <td>&nbsp;</td>
         <td>
-            <h3 class="auto-style4">Add User</h3>
         </td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>

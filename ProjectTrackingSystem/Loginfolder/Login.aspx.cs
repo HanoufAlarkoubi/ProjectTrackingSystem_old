@@ -14,13 +14,14 @@ namespace ProjectTrackingSystem.Loginfolder
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           
 
         }
 
-        protected void LoginButton_Click(object sender, EventArgs e)
+        protected void LoginB_Click(object sender, EventArgs e)
         {
             var element = from a in db.Employees
-                          where a.Username == UsernameTB.Text && a.Password == PasswordTB.Text
+                          where a.Username == inputusername.Value && a.Password == inputPassW.Value
                           select a;
             if (element.Count() !=0)
             {
@@ -54,7 +55,7 @@ namespace ProjectTrackingSystem.Loginfolder
             }
             else
             {
-                IncorrectPasswordLabel.Visible = true;
+                Incorrectdiv.Visible = true;
             }
         }
  

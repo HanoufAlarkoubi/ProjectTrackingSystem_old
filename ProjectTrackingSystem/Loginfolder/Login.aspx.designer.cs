@@ -13,22 +13,22 @@ namespace ProjectTrackingSystem.Loginfolder {
     public partial class WebForm1 {
         
         /// <summary>
-        /// UsernameTB control.
+        /// inputusername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UsernameTB;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputusername;
         
         /// <summary>
-        /// PasswordTB control.
+        /// inputPassW control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordTB;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword inputPassW;
         
         /// <summary>
         /// IncorrectPasswordLabel control.
@@ -40,12 +40,30 @@ namespace ProjectTrackingSystem.Loginfolder {
         protected global::System.Web.UI.WebControls.Label IncorrectPasswordLabel;
         
         /// <summary>
-        /// LoginButton control.
+        /// Incorrectdiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Incorrectdiv;
+        
+        /// <summary>
+        /// Incorrectlabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Incorrectlabel;
+        
+        /// <summary>
+        /// LoginB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LoginB;
     }
 }
