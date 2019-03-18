@@ -44,8 +44,8 @@
             <li ><span class="navbar-text" > Welcome, </span></li>
             
             <li ><span  class="navbar-text" runat="server" ID="Label2" ></span></li>
-                                    <asp:ImageButton ID="ImageButton1" runat="server" Height="16px" ImageUrl="~/Image/logout_1185552.png" CausesValidation="False" OnClick="ImageButton1_Click" Width="16px" ImageAlign="AbsMiddle" />
 
+                                    <li >   <a href="~/Loginfolder/Login.aspx" CausesValidation="False" runat="server"> <span class="glyphicon glyphicon-off"></a></li>
         </ul>
     </div>
       

@@ -8,26 +8,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-<table class="auto-style1">
-    <tr>
-        <td>&nbsp;</td>
-        <td class="auto-style4">
-            <h3>Admin Home Page</h3>
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-</table>
+<div class="auto-style35">
+  <h2 class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Home Admin Page</h2>
+    
     <br />
     
     <br />
+    </div>
     </asp:Content>
