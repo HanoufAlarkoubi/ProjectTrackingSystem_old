@@ -19,10 +19,10 @@ namespace ProjectTrackingSystem.Adminfolder
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ChooseB_Click(object sender, EventArgs e)
         {
             var elem = from a in db.Employees
-                       where a.EmployeeType == RadioButtonList2.SelectedValue
+                       where a.EmployeeType == RadioButtonList1.SelectedValue
                        select new { Name= a.FirstName + " " + a.LastName, id= a.EmployeeID};
 
             if (elem.Count() != 0)
@@ -40,11 +40,6 @@ namespace ProjectTrackingSystem.Adminfolder
          
                 BulletedList1.Items[i].Value = "~/AdminFolder/EditUser.aspx?a="+BulletedList1.Items[i].Value;
             }
-        }
-
-        protected void BulletedList1_Click(object sender, BulletedListEventArgs e)
-        {
-        
         }
     }
 }

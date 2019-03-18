@@ -72,7 +72,6 @@
         <label for="inputPass" >Password </label><br />
         
         <input type="password" class="auto-style17" id="inputPassW" placeholder="Password" runat="server">
-            <asp:Label ID="IncorrectPasswordLabel" runat="server" ForeColor="Red" Text="Incorrect username or password!" Visible="False"></asp:Label>
         <br />
         <div class="auto-style18" aria-hidden="False" Visible="False" id="Incorrectdiv"  runat="server" >
   
@@ -80,7 +79,6 @@
   
   <strong>Incorrect username or password!</strong></span>
 </div>
-        <br />
         <br />
   <a href="#" class="btn btn-default" style="color: #FFFFFF; background-color: #2E2C78" runat="server" id="LoginB" onserverclick="LoginB_Click">Login</a>
 </div>

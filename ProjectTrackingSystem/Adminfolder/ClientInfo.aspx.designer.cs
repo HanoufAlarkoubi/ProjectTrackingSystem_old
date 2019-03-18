@@ -13,66 +13,66 @@ namespace ProjectTrackingSystem.Adminfolder {
     public partial class WebForm5 {
         
         /// <summary>
-        /// FNTextBox control.
+        /// inputFN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FNTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputFN;
         
         /// <summary>
-        /// LNTextBox control.
+        /// inputLN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LNTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputLN;
         
         /// <summary>
-        /// EmailTextBox control.
+        /// inputUN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputUN;
         
         /// <summary>
-        /// MobileTextBox control.
+        /// inputEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MobileTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputEmail;
         
         /// <summary>
-        /// AddressTextBox control.
+        /// inputMN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AddressTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputMN;
         
         /// <summary>
-        /// AddButton1 control.
+        /// inputAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddButton1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputAddress;
         
         /// <summary>
-        /// CancelButton1 control.
+        /// AddB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CancelButton1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor AddB;
     }
 }

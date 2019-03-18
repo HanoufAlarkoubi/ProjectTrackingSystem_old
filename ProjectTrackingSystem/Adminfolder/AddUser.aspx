@@ -4,141 +4,150 @@
     .auto-style4 {
         height: 34px;
     }
-</style>
+        .auto-style19 {
+            margin-left: 86px;
+            width: 32px;
+        }
+        .auto-style20 {
+            margin-left: 46px;
+            width: 71px;
+        }
+        .auto-style21 {
+            margin-left: 56px;
+        }
+        .auto-style23 {
+            margin-left: 25px;
+        }
+        .auto-style24 {
+            margin-left: 52px;
+        }
+        .auto-style25 {
+            margin-left: 23px;
+        }
+        .auto-style26 {
+            margin-left: 0px;
+        }
+        .auto-style27 {
+            color: inherit;
+            box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 1px solid #e7e7e7;
+            margin-bottom: 30px;
+            padding-top: 48px;
+            padding-bottom: 48px;
+            background-color: #fafafa;
+        }
+        .auto-style31 {
+            margin-left: 84px;
+        }
+        .auto-style32 {
+            margin-left: 22px;
+        }
+        .auto-style33 {
+            margin-left: 40px;
+        }
+        .auto-style34 {
+            display: inline-block;
+            width: 22%;
+            height: 38px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555555;
+            border-radius: 4px;
+            box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.075);
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            border: 1px solid #e7e7e7;
+            padding: 7px 12px;
+            background-color: #ffffff;
+            background-image: none;
+        }
+        .auto-style35 {
+            color: #FF0000;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-    <div class="jumbotron">
-  <h1>Add User</h1>
-  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
-</div><div style="text-align:center">
-    <h2>Add User</h2>
-        </div>
-    <div>
-         <label for="inputFN" class="col-lg-2 control-label">First Name</label>
-    </div>
-    <table class="auto-style1">
-    <tr>
-        <td>&nbsp;</td>
-        <td>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>First Name</td>
-        <td>
-            <asp:TextBox ID="FN" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RFV_FN" runat="server" ControlToValidate="FN" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Last Name</td>
-        <td>
-            <asp:TextBox ID="LN" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RFV_LN" runat="server" ControlToValidate="LN" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Username</td>
-        <td>
-            <asp:TextBox ID="Username" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RFV_Usrname" runat="server" ControlToValidate="Username" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>E-Mail</td>
-        <td>
-            <asp:TextBox ID="Email" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RFV_Email" runat="server" ControlToValidate="Email" ErrorMessage="*"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Email" ErrorMessage="Please enter a valid email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Role</td>
-        <td>
-            <asp:DropDownList ID="Role" runat="server">
-                <asp:ListItem>Admin</asp:ListItem>
-                <asp:ListItem>Project Manager</asp:ListItem>
-                <asp:ListItem>Operational Manager</asp:ListItem>
-                <asp:ListItem>Technical Employee</asp:ListItem>
-                <asp:ListItem>Financial Manager</asp:ListItem>
-            </asp:DropDownList>
-            <asp:RequiredFieldValidator ID="RFV_Role" runat="server" ControlToValidate="Role" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td>
-            <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RFV_Pass" runat="server" ControlToValidate="Password" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Confirm password</td>
-        <td>
-            <asp:TextBox ID="Conpass" runat="server" TextMode="Password"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RFV_conPass" runat="server" ControlToValidate="Conpass" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Phone Number</td>
-        <td>
-            <asp:TextBox ID="PhoneNum" runat="server" TextMode="Number"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RFV_Phone" runat="server" ControlToValidate="PhoneNum" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style4">Mobile Number</td>
-        <td class="auto-style4">
-            <asp:TextBox ID="MobileNum" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RFV_Mobile" runat="server" ControlToValidate="MobileNum" ErrorMessage="*"></asp:RequiredFieldValidator>
-        </td>
-        <td class="auto-style4"></td>
-        <td class="auto-style4"></td>
-    </tr>
-    <tr>
-        <td>Hour Rate</td>
-        <td>
-            <asp:TextBox ID="HourRate" runat="server" TextMode="Number"></asp:TextBox>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Rate Category</td>
-        <td>
-            <asp:TextBox ID="RateCategory" runat="server"></asp:TextBox>
-        </td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>
-            <asp:Button ID="AddButton" runat="server" Text="Add" OnClick="AddButton_Click" />
-        </td>
-        <td>
-            <asp:Button ID="CancelButton" runat="server" Text="Cancel" OnClick="CancelButton_Click" />
-        </td>
-    </tr>
-</table>
+    <div class="auto-style27">
+  <h2 class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add User</h2><br />
+  <label for="inputFN" class="auto-style33" >First Name: </label>
+                <input type="text" class="auto-style34" id="inputFN"  runat="server">
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="inputFN" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+        <br />
+        <br />
+        <label for="inputLN" class="auto-style33" >Last Name: </label>
+        <input type="text" class="auto-style34" id="inputLN"  runat="server">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="inputLN" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+        <label for="inputUN" class="auto-style20" > Username: </label>
+        <input type="text" class="auto-style34" id="inputUN"  runat="server">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="inputUN" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+
+        <label for="inputEmail" class="auto-style31" >Email: </label>
+        <input type="text" class="auto-style34" id="inputEmail"  runat="server">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="inputEmail" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="inputEmail" ErrorMessage="Please enter a valid email address" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" CssClass="auto-style35"></asp:RegularExpressionValidator>
+
+        <br /> 
+
+        <label for="inputRole" class="auto-style19" >Role: </label>
+        <%--<input type="text" class="auto-style17" id="inputRole"  runat="server">--%>
+        <select class="auto-style34" id="SelectRole" runat="server">
+          <option>Admin</option>
+          <option>Operational Manager</option>
+          <option>Technical Employee</option>
+          <option>Financial Employee</option>
+          <option>Project Manager</option>
+        </select>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="SelectRole" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+        <label for="inputPass" class="auto-style21" >Password: </label>
+        <input type="password" class="auto-style34" id="inputPass"  runat="server">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="inputPass" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+        <label for="inputConfPass" class="auto-style26" >Confirm Password: </label>
+        <input type="password" class="auto-style34" id="inputConfPass"  runat="server">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="inputConfPass" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+        <label for="inputPN" class="auto-style32" >Phone Number: </label>
+        <input type="text" class="auto-style34" id="inputPN"  runat="server" maxlength="10">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="inputPN" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+        <label for="inputMN" class="auto-style23" >Mobile Number: </label>
+        <input type="text" class="auto-style34" id="inputMN"  runat="server" maxlength="10">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="inputMN" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+        <label for="inputHR" class="auto-style24" >Hour Rate: </label>
+        <input type="text" class="auto-style34" id="inputHR"  runat="server">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="inputHR" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+        <label for="inputRC" class="auto-style25" >Rate Category: </label>
+        <input type="text" class="auto-style34" id="inputRC"  runat="server">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="inputRC" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
+
+        <br />
+        <br />
+        <br />
+  <a href="#" class="btn btn-default" style="color: #FFFFFF; background-color: #2E2C78; margin-left: 68px;" runat="server" id="AddB" onserverclick="addB_Click">Add</a>
+        <button type="reset" class="btn btn-default">Cancel</button>
+</div>
+    
 </asp:Content>

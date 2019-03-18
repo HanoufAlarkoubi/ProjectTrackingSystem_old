@@ -16,15 +16,15 @@ namespace ProjectTrackingSystem.Adminfolder
 
         }
 
-        protected void AddButton1_Click(object sender, EventArgs e)
+        protected void addB_Click(object sender, EventArgs e)
         {
             
                 Client myClient = new Client();
-                myClient.FirstName = FNTextBox.Text;
-                myClient.LastName = LNTextBox.Text;
-                myClient.Email = EmailTextBox.Text;
-                myClient.MobileNumer = Int32.Parse(MobileTextBox.Text);
-                myClient.Address = AddressTextBox.Text;
+                myClient.FirstName = inputFN.Value;
+                myClient.LastName = inputLN.Value;
+                myClient.Email = inputEmail.Value;
+                myClient.MobileNumer = Int32.Parse(inputMN.Value);
+                myClient.Address = inputAddress.Value;
                 myPTS.Clients.InsertOnSubmit(myClient);
                 myPTS.SubmitChanges();
             

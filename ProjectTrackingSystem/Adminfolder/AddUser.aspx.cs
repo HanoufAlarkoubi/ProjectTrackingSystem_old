@@ -16,21 +16,21 @@ namespace ProjectTrackingSystem.Adminfolder
 
         }
 
-        protected void AddButton_Click(object sender, EventArgs e)
+        protected void addB_Click(object sender, EventArgs e)
         {
 
             Employee myEmployee = new Employee();
-            myEmployee.FirstName = FN.Text;
-            myEmployee.LastName = LN.Text;
-            myEmployee.Username = Username.Text;
-            myEmployee.Email = Email.Text;
-            myEmployee.EmployeeType = Role.SelectedValue;
-            myEmployee.Password = Password.Text;
-            myEmployee.PhoneNumber = Int32.Parse(PhoneNum.Text);
-            myEmployee.MobileNumber = Int32.Parse(MobileNum.Text);
-            myEmployee.HourRate = Int32.Parse(HourRate.Text);
-            myEmployee.RateCategory = RateCategory.Text;
-            if (Password.Text == Conpass.Text)
+            myEmployee.FirstName = inputFN.Value;
+            myEmployee.LastName = inputLN.Value;
+            myEmployee.Username = inputUN.Value;
+            myEmployee.Email = inputEmail.Value;
+            myEmployee.EmployeeType = SelectRole.Value;
+            myEmployee.Password = inputPass.Value;
+            myEmployee.PhoneNumber = Int32.Parse(inputPN.Value);
+            myEmployee.MobileNumber = Int32.Parse(inputMN.Value);
+            myEmployee.HourRate = Int32.Parse(inputHR.Value);
+            myEmployee.RateCategory = inputRC.Value;
+            if (inputPass.Value == inputConfPass.Value)
             { 
             myPTS.Employees.InsertOnSubmit(myEmployee);
             myPTS.SubmitChanges();

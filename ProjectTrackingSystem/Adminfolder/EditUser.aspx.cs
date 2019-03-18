@@ -19,13 +19,26 @@ namespace ProjectTrackingSystem.Adminfolder
                           where a.EmployeeID == Convert.ToInt16(Label2.Text)
                           select a;
             var el = det.First();
-            TextBox1.Text = el.FirstName;
-            TextBox2.Text = el.LastName;
-            TextBox3.Text = el.Username;
+            inputFN.Value = el.FirstName;
+            inputLN.Value = el.LastName;
+            inputUN.Value = el.Username;
+            inputEmail.Value = el.Email;
+            SelectRole.Value = el.EmployeeType;
+            inputPN.Value = el.PhoneNumber.ToString();
+            inputMN.Value = el.MobileNumber.ToString();
+            inputHR.Value = el.HourRate.ToString();
+            inputRC.Value = el.RateCategory;
 
-               // DetailsView1.DataSource = det;
-                //DetailsView1.DataBind();
-            }
-
+            // DetailsView1.DataSource = det;
+            //DetailsView1.DataBind();
         }
+
+        protected void EditB_Click(object sender, EventArgs e)
+        {
+            if (inputPass.Value == inputConfPass.Value)
+            {
+                db.SubmitChanges();
+            }
+        }
+    }
     }
