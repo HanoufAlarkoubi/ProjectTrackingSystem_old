@@ -101,25 +101,6 @@
       <Association Name="Project_Document" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Employee" Member="Employees">
-    <Type Name="Employee">
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MobileNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="HourRate" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RateCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Employee_TechnicalEmployee" Member="TechnicalEmployee" ThisKey="EmployeeID" OtherKey="TEID" Type="TechnicalEmployee" Cardinality="One" />
-      <Association Name="Employee_FinancialManager" Member="FinancialManager" ThisKey="EmployeeID" OtherKey="FMID" Type="FinancialManager" Cardinality="One" />
-      <Association Name="Employee_OperationalManager" Member="OperationalManager" ThisKey="EmployeeID" OtherKey="OMID" Type="OperationalManager" Cardinality="One" />
-      <Association Name="Employee_ProjectManager" Member="ProjectManager" ThisKey="EmployeeID" OtherKey="PMID" Type="ProjectManager" Cardinality="One" />
-    </Type>
-  </Table>
   <Table Name="dbo.Feedback" Member="Feedbacks">
     <Type Name="Feedback">
       <Column Name="FeedbackID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -303,6 +284,25 @@
       <Association Name="DesignDocument_SubmittedBy" Member="DesignDocument" ThisKey="DesignDocumentID" OtherKey="DesignDocumentID" Type="DesignDocument" IsForeignKey="true" />
       <Association Name="Project_SubmittedBy" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
       <Association Name="TechnicalEmployee_SubmittedBy" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MobileNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HourRate" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="RateCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_TechnicalEmployee" Member="TechnicalEmployee" ThisKey="EmployeeID" OtherKey="TEID" Type="TechnicalEmployee" Cardinality="One" />
+      <Association Name="Employee_FinancialManager" Member="FinancialManager" ThisKey="EmployeeID" OtherKey="FMID" Type="FinancialManager" Cardinality="One" />
+      <Association Name="Employee_OperationalManager" Member="OperationalManager" ThisKey="EmployeeID" OtherKey="OMID" Type="OperationalManager" Cardinality="One" />
+      <Association Name="Employee_ProjectManager" Member="ProjectManager" ThisKey="EmployeeID" OtherKey="PMID" Type="ProjectManager" Cardinality="One" />
     </Type>
   </Table>
 </Database>

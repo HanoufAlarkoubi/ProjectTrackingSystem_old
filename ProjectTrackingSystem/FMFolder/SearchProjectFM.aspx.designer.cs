@@ -13,66 +13,39 @@ namespace ProjectTrackingSystem.FMFolder {
     public partial class WebForm3 {
         
         /// <summary>
-        /// ProjectName control.
+        /// inputHR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ProjectName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputHR;
         
         /// <summary>
-        /// ProjectNameTB control.
+        /// inputRC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProjectNameTB;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputRC;
         
         /// <summary>
-        /// ProjectManager control.
+        /// Text1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ProjectManager;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
         
         /// <summary>
-        /// ProjectManagerTB control.
+        /// SearchB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProjectManagerTB;
-        
-        /// <summary>
-        /// ProjectDueDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ProjectDueDate;
-        
-        /// <summary>
-        /// ProjectDueDateTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProjectDueDateTB;
-        
-        /// <summary>
-        /// SearchButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor SearchB;
     }
 }

@@ -18,6 +18,7 @@ namespace ProjectTrackingSystem.Adminfolder
 
         protected void addB_Click(object sender, EventArgs e)
         {
+            
 
             Employee myEmployee = new Employee();
             myEmployee.FirstName = inputFN.Value;
@@ -28,8 +29,15 @@ namespace ProjectTrackingSystem.Adminfolder
             myEmployee.Password = inputPass.Value;
             myEmployee.PhoneNumber = Int32.Parse(inputPN.Value);
             myEmployee.MobileNumber = Int32.Parse(inputMN.Value);
-            myEmployee.HourRate = Int32.Parse(inputHR.Value);
-            myEmployee.RateCategory = inputRC.Value;
+            if (inputHR.Value == "")
+            {
+                myEmployee.HourRate =null;
+            }
+            if (inputRC.Value == "")
+            {
+                myEmployee.RateCategory = null;
+            }
+
             if (inputPass.Value == inputConfPass.Value)
             { 
             myPTS.Employees.InsertOnSubmit(myEmployee);

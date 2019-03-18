@@ -102,7 +102,7 @@
           <option>Admin</option>
           <option>Operational Manager</option>
           <option>Technical Employee</option>
-          <option>Financial Employee</option>
+          <option>Financial Manager</option>
           <option>Project Manager</option>
         </select>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="SelectRole" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
@@ -135,13 +135,11 @@
         <br />
         <label for="inputHR" class="auto-style24" >Hour Rate: </label>
         <input type="text" class="auto-style34" id="inputHR"  runat="server">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="inputHR" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
 
         <br />
         <br />
         <label for="inputRC" class="auto-style25" >Rate Category: </label>
         <input type="text" class="auto-style34" id="inputRC"  runat="server">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="inputRC" ErrorMessage="*" CssClass="auto-style35"></asp:RequiredFieldValidator>
 
         <br />
         <br />

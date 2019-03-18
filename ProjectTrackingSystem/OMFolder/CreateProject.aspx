@@ -1,7 +1,143 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OMFolder/OM.Master" AutoEventWireup="true" CodeBehind="CreateProject.aspx.cs" Inherits="ProjectTrackingSystem.OMFolder.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+.auto-style34 {
+            display: inline-block;
+            width: 22%;
+            height: 38px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555555;
+            border-radius: 4px;
+            box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.075);
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            border: 1px solid #e7e7e7;
+            padding: 7px 12px;
+            background-color: #ffffff;
+            background-image: none;
+        }
+.form-control{
+    width: 22%;
+}
+    </style>
     </asp:Content >
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="well well-lg">
+ <div class="panel panel-default">
+  <div class="panel-heading">Project Information:</div>
+  <div class="panel-body">
+      <div class="form-group">
+      <label for="inputPN" class="col-lg-2 control-label">Project Name:</label>
+      <div class="col-lg-10">
+        <input type="text" class="auto-style34" id="inputPN">
+      </div>
+    </div>
+      <br />
+      <br />
+
+        <div class="form-group">
+      <label for="inputEC" class="col-lg-2 control-label">Estimated Cost:</label>
+      <div class="col-lg-10">
+        <input type="text" class="auto-style34" id="inputEC" >
+  </div>
+</div>
+      <br />
+      <br />
+
+    <div class="form-group">
+      <label for="inputESD" class="col-lg-2 control-label">Expected Start Date:</label>
+      <div class="col-lg-10">
+        <input type="date" class="auto-style34" id="inputESD" >
+  </div>
+</div>
+     <br />
+      <br />
+
+        <div class="form-group">
+      <label for="inputEED" class="col-lg-2 control-label">Expected End Date:</label>
+      <div class="col-lg-10">
+        <input type="date" class="auto-style34" id="inputEED" >
+  </div>
+</div>
+     <br />
+      <br />
+      <div class="form-group">
+      <label for="textAreaDesc" class="col-lg-2 control-label">Description:</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textAreaDesc"></textarea>
+      </div>
+   </div>
+      <br />
+      <br />
+      <br />
+    <br />
+
+ <div class="form-group">
+      <label for="selectPM" class="col-lg-2 control-label">Assign Project Manager:</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="selectPM">
+          <option>PM1</option>
+          <option>PM2</option>
+          <option>PM3</option>
+          <option>PM4</option>
+          <option>PM5</option>
+        </select>
+        <br/>
+          
+          </div>
+     </div>
+      <br/>
+     
+     
+     </div>
+
+</div>
+        <div class="panel panel-default">
+  <div class="panel-heading">Client Information:</div>
+  <div class="panel-body">
+
+      <div class="form-group">
+      <label for="selectCN" class="col-lg-2 control-label">Client Name:</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="selectCN">
+          <option>Client1</option>
+          <option>Client2</option>
+          <option>Client3</option>
+          <option>Client4</option>
+          <option>Client5</option>
+        </select>
+        <br/>
+          
+          </div>
+     </div>
+
+ 
+      <br />
+      <br />
+
+     <div class="form-group">
+      <label for="inputEm" class="col-lg-2 control-label">Email:</label>
+      <div class="col-lg-10">
+        <input type="text" class="auto-style34" id="inputEm" >
+  </div>
+</div>
+      <br />
+      <br />
+
+       <div class="form-group">
+      <label for="inputMN" class="col-lg-2 control-label">Mobile Number:</label>
+      <div class="col-lg-10">
+        <input type="text" class="auto-style34" id="inputMN" >
+  </div>
+</div>
+      <br />
+      <br />
+  </div>
+</div>
+         <a href="#" class="btn btn-default" style="color: #FFFFFF; background-color: #2E2C78; margin-left: 674px;" runat="server" id="AddBtn" onserverclick="addBtn_Click">Add</a>
+        <button type="reset" class="btn btn-default">Cancel</button>
+</div>
+
     <table class="auto-style24">
         <tr>
             <td>&nbsp;</td>
@@ -52,7 +188,7 @@
     <tr>
         <td class="auto-style9">Expected Start Date:</td>
         <td class="auto-style22">
-            <asp:DropDownList ID="ESD_Day" runat="server" Height="18px" OnSelectedIndexChanged="ESD_Day_SelectedIndexChanged" Width="52px">
+<%--            <asp:DropDownList ID="ESD_Day" runat="server" Height="18px" OnSelectedIndexChanged="ESD_Day_SelectedIndexChanged" Width="52px">--%>
                 <asp:ListItem>01</asp:ListItem>
                 <asp:ListItem>02</asp:ListItem>
                 <asp:ListItem>03</asp:ListItem>
@@ -277,8 +413,7 @@
             <td class="auto-style30">&nbsp;</td>
             <td class="auto-style29">&nbsp;</td>
             <td class="auto-style28">
-            <asp:Button ID="CreateButton" runat="server" Text="Create " OnClick="CreateButton_Click" />
-            </td>
+                &nbsp;</td>
             <td>
             <asp:Button ID="CancelButton" runat="server" Text="Cancel" />
             </td>

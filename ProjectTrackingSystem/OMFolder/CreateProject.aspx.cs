@@ -16,20 +16,17 @@ namespace ProjectTrackingSystem.OMFolder
 
         }
 
-        protected void ESD_Day_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
-        }
-
-        protected void CreateButton_Click(object sender, EventArgs e)
+        protected void addBtn_Click(object sender, EventArgs e)
         {
-            string a = ESD_Day.SelectedValue;
-            string b = ESD_Month.SelectedValue;
-            string c = ESD_Year.SelectedValue;
+            //string a = ESD_Day.SelectedValue;
+            //string b = ESD_Month.SelectedValue;
+            //string c = ESD_Year.SelectedValue;
           
-            string d = EED_Day.SelectedValue;
-            string l = EED_Month.SelectedValue;
-            string p = EED_Year.SelectedValue;
+            //string d = EED_Day.SelectedValue;
+            //string l = EED_Month.SelectedValue;
+            //string p = EED_Year.SelectedValue;
 
 
 

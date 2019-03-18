@@ -4,7 +4,8 @@
 
 <html>
 <head runat="server">
-    <title></title>
+            <link href="../Content/bootstrap.css" rel="stylesheet" />
+<title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -25,46 +26,41 @@
         }
     </style>
 </head>
-<body bgcolor="#dbdde0">
+<body >
     <form id="form1" runat="server">
         <div>
+            <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+         <ul class="nav navbar-nav navbar-left">
+                               <asp:Image ID="Image1" runat="server" ImageUrl="~/Image/ATS.png" Height="60px" ImageAlign="Middle" Width="90px"  />
+             </ul>
+      <a class="navbar-brand">Project Tracking System</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="~/OMFolder/HomeOM.aspx" runat="server"> Home <span class="glyphicon glyphicon-home"><span class="sr-only"></span></a></li>
+        <li><a href="~/OMFolder/CreateProject.aspx"  runat="server">Create a project <span class="glyphicon glyphicon-plus"></a></li>
+         
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li ><span class="navbar-text" > Welcome, </span></li>
             
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Image/ATS.png" BorderColor="Black" BorderStyle="Solid" />
-                    </td>
-                    <td class="auto-style6">
-                        <h1 class="auto-style3">Project Tracking System</h1>
-                    </td>
-                    <td class="auto-style7">
-                        <span class="auto-style3">Welcome, </span>
-                        <asp:Label ID="Label1" runat="server" CssClass="auto-style3"></asp:Label>
-                    </td>
-                    <td class="auto-style5">
-                        <asp:ImageButton ID="ImageButton1" runat="server" Height="16px" ImageUrl="~/Image/logout_1185552.png" OnClick="ImageButton1_Click" Width="28px" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style6">
-                        <hr />
-                        <asp:Menu ID="Menu1" runat="server" ForeColor="#2C2979" Orientation="Horizontal">
-                            <Items>
-                                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/OMFolder/HomeOM.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Create a new Project" Value="Create a new Project" NavigateUrl="~/OMFolder/CreateProject.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Assign PM to Project" Value="Assign PM to Project"></asp:MenuItem>
-                            </Items>
-                        </asp:Menu>
-                        <br />
-                        <hr />
-                    </td>
-                    <td class="auto-style7">
-                        &nbsp;</td>
-                    <td class="auto-style5">
-                        &nbsp;</td>
-                </tr>
-            </table>
+            <li ><span  class="navbar-text" runat="server" ID="Label2" ></span></li>
+
+                                    <li >   <a href="~/Loginfolder/Login.aspx" CausesValidation="False" runat="server"> <span class="glyphicon glyphicon-off"></a></li>
+        </ul>
+    </div>
+      
+  </div>
+</nav>
             
         </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

@@ -14,14 +14,10 @@ namespace ProjectTrackingSystem.FMFolder
 
         }
 
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
+
+        protected void SearchB_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void TextBox1_TextChanged1(object sender, EventArgs e)
-        {
-
+            
         }
     }
 }

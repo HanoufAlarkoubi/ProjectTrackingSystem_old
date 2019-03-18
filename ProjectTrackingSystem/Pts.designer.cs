@@ -54,9 +54,6 @@ namespace ProjectTrackingSystem
     partial void InsertDocument(Document instance);
     partial void UpdateDocument(Document instance);
     partial void DeleteDocument(Document instance);
-    partial void InsertEmployee(Employee instance);
-    partial void UpdateEmployee(Employee instance);
-    partial void DeleteEmployee(Employee instance);
     partial void InsertFeedback(Feedback instance);
     partial void UpdateFeedback(Feedback instance);
     partial void DeleteFeedback(Feedback instance);
@@ -105,6 +102,9 @@ namespace ProjectTrackingSystem
     partial void InsertSubmittedBy(SubmittedBy instance);
     partial void UpdateSubmittedBy(SubmittedBy instance);
     partial void DeleteSubmittedBy(SubmittedBy instance);
+    partial void InsertEmployee(Employee instance);
+    partial void UpdateEmployee(Employee instance);
+    partial void DeleteEmployee(Employee instance);
     #endregion
 		
 		public PtsDataContext() : 
@@ -198,14 +198,6 @@ namespace ProjectTrackingSystem
 			get
 			{
 				return this.GetTable<Document>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Employee> Employees
-		{
-			get
-			{
-				return this.GetTable<Employee>();
 			}
 		}
 		
@@ -334,6 +326,14 @@ namespace ProjectTrackingSystem
 			get
 			{
 				return this.GetTable<SubmittedBy>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Employee> Employees
+		{
+			get
+			{
+				return this.GetTable<Employee>();
 			}
 		}
 	}
@@ -2529,436 +2529,6 @@ namespace ProjectTrackingSystem
 						this._ProjectID = default(int);
 					}
 					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
-	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EmployeeID;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private int _PhoneNumber;
-		
-		private int _MobileNumber;
-		
-		private string _Email;
-		
-		private string _EmployeeType;
-		
-		private string _Username;
-		
-		private string _Password;
-		
-		private System.Nullable<int> _HourRate;
-		
-		private string _RateCategory;
-		
-		private EntityRef<TechnicalEmployee> _TechnicalEmployee;
-		
-		private EntityRef<FinancialManager> _FinancialManager;
-		
-		private EntityRef<OperationalManager> _OperationalManager;
-		
-		private EntityRef<ProjectManager> _ProjectManager;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnPhoneNumberChanging(int value);
-    partial void OnPhoneNumberChanged();
-    partial void OnMobileNumberChanging(int value);
-    partial void OnMobileNumberChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnEmployeeTypeChanging(string value);
-    partial void OnEmployeeTypeChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnHourRateChanging(System.Nullable<int> value);
-    partial void OnHourRateChanged();
-    partial void OnRateCategoryChanging(string value);
-    partial void OnRateCategoryChanged();
-    #endregion
-		
-		public Employee()
-		{
-			this._TechnicalEmployee = default(EntityRef<TechnicalEmployee>);
-			this._FinancialManager = default(EntityRef<FinancialManager>);
-			this._OperationalManager = default(EntityRef<OperationalManager>);
-			this._ProjectManager = default(EntityRef<ProjectManager>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="Int NOT NULL")]
-		public int PhoneNumber
-		{
-			get
-			{
-				return this._PhoneNumber;
-			}
-			set
-			{
-				if ((this._PhoneNumber != value))
-				{
-					this.OnPhoneNumberChanging(value);
-					this.SendPropertyChanging();
-					this._PhoneNumber = value;
-					this.SendPropertyChanged("PhoneNumber");
-					this.OnPhoneNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobileNumber", DbType="Int NOT NULL")]
-		public int MobileNumber
-		{
-			get
-			{
-				return this._MobileNumber;
-			}
-			set
-			{
-				if ((this._MobileNumber != value))
-				{
-					this.OnMobileNumberChanging(value);
-					this.SendPropertyChanging();
-					this._MobileNumber = value;
-					this.SendPropertyChanged("MobileNumber");
-					this.OnMobileNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string EmployeeType
-		{
-			get
-			{
-				return this._EmployeeType;
-			}
-			set
-			{
-				if ((this._EmployeeType != value))
-				{
-					this.OnEmployeeTypeChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeType = value;
-					this.SendPropertyChanged("EmployeeType");
-					this.OnEmployeeTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HourRate", DbType="Int")]
-		public System.Nullable<int> HourRate
-		{
-			get
-			{
-				return this._HourRate;
-			}
-			set
-			{
-				if ((this._HourRate != value))
-				{
-					this.OnHourRateChanging(value);
-					this.SendPropertyChanging();
-					this._HourRate = value;
-					this.SendPropertyChanged("HourRate");
-					this.OnHourRateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RateCategory", DbType="VarChar(50)")]
-		public string RateCategory
-		{
-			get
-			{
-				return this._RateCategory;
-			}
-			set
-			{
-				if ((this._RateCategory != value))
-				{
-					this.OnRateCategoryChanging(value);
-					this.SendPropertyChanging();
-					this._RateCategory = value;
-					this.SendPropertyChanged("RateCategory");
-					this.OnRateCategoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_TechnicalEmployee", Storage="_TechnicalEmployee", ThisKey="EmployeeID", OtherKey="TEID", IsUnique=true, IsForeignKey=false)]
-		public TechnicalEmployee TechnicalEmployee
-		{
-			get
-			{
-				return this._TechnicalEmployee.Entity;
-			}
-			set
-			{
-				TechnicalEmployee previousValue = this._TechnicalEmployee.Entity;
-				if (((previousValue != value) 
-							|| (this._TechnicalEmployee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TechnicalEmployee.Entity = null;
-						previousValue.Employee = null;
-					}
-					this._TechnicalEmployee.Entity = value;
-					if ((value != null))
-					{
-						value.Employee = this;
-					}
-					this.SendPropertyChanged("TechnicalEmployee");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_FinancialManager", Storage="_FinancialManager", ThisKey="EmployeeID", OtherKey="FMID", IsUnique=true, IsForeignKey=false)]
-		public FinancialManager FinancialManager
-		{
-			get
-			{
-				return this._FinancialManager.Entity;
-			}
-			set
-			{
-				FinancialManager previousValue = this._FinancialManager.Entity;
-				if (((previousValue != value) 
-							|| (this._FinancialManager.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._FinancialManager.Entity = null;
-						previousValue.Employee = null;
-					}
-					this._FinancialManager.Entity = value;
-					if ((value != null))
-					{
-						value.Employee = this;
-					}
-					this.SendPropertyChanged("FinancialManager");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OperationalManager", Storage="_OperationalManager", ThisKey="EmployeeID", OtherKey="OMID", IsUnique=true, IsForeignKey=false)]
-		public OperationalManager OperationalManager
-		{
-			get
-			{
-				return this._OperationalManager.Entity;
-			}
-			set
-			{
-				OperationalManager previousValue = this._OperationalManager.Entity;
-				if (((previousValue != value) 
-							|| (this._OperationalManager.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._OperationalManager.Entity = null;
-						previousValue.Employee = null;
-					}
-					this._OperationalManager.Entity = value;
-					if ((value != null))
-					{
-						value.Employee = this;
-					}
-					this.SendPropertyChanged("OperationalManager");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_ProjectManager", Storage="_ProjectManager", ThisKey="EmployeeID", OtherKey="PMID", IsUnique=true, IsForeignKey=false)]
-		public ProjectManager ProjectManager
-		{
-			get
-			{
-				return this._ProjectManager.Entity;
-			}
-			set
-			{
-				ProjectManager previousValue = this._ProjectManager.Entity;
-				if (((previousValue != value) 
-							|| (this._ProjectManager.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ProjectManager.Entity = null;
-						previousValue.Employee = null;
-					}
-					this._ProjectManager.Entity = value;
-					if ((value != null))
-					{
-						value.Employee = this;
-					}
-					this.SendPropertyChanged("ProjectManager");
 				}
 			}
 		}
@@ -7018,6 +6588,436 @@ namespace ProjectTrackingSystem
 						this._TEID = default(int);
 					}
 					this.SendPropertyChanged("TechnicalEmployee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
+	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EmployeeID;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private int _PhoneNumber;
+		
+		private int _MobileNumber;
+		
+		private string _Email;
+		
+		private string _EmployeeType;
+		
+		private string _Username;
+		
+		private string _Password;
+		
+		private string _HourRate;
+		
+		private string _RateCategory;
+		
+		private EntityRef<TechnicalEmployee> _TechnicalEmployee;
+		
+		private EntityRef<FinancialManager> _FinancialManager;
+		
+		private EntityRef<OperationalManager> _OperationalManager;
+		
+		private EntityRef<ProjectManager> _ProjectManager;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnPhoneNumberChanging(int value);
+    partial void OnPhoneNumberChanged();
+    partial void OnMobileNumberChanging(int value);
+    partial void OnMobileNumberChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnEmployeeTypeChanging(string value);
+    partial void OnEmployeeTypeChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnHourRateChanging(string value);
+    partial void OnHourRateChanged();
+    partial void OnRateCategoryChanging(string value);
+    partial void OnRateCategoryChanged();
+    #endregion
+		
+		public Employee()
+		{
+			this._TechnicalEmployee = default(EntityRef<TechnicalEmployee>);
+			this._FinancialManager = default(EntityRef<FinancialManager>);
+			this._OperationalManager = default(EntityRef<OperationalManager>);
+			this._ProjectManager = default(EntityRef<ProjectManager>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="Int NOT NULL")]
+		public int PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this.OnPhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobileNumber", DbType="Int NOT NULL")]
+		public int MobileNumber
+		{
+			get
+			{
+				return this._MobileNumber;
+			}
+			set
+			{
+				if ((this._MobileNumber != value))
+				{
+					this.OnMobileNumberChanging(value);
+					this.SendPropertyChanging();
+					this._MobileNumber = value;
+					this.SendPropertyChanged("MobileNumber");
+					this.OnMobileNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmployeeType
+		{
+			get
+			{
+				return this._EmployeeType;
+			}
+			set
+			{
+				if ((this._EmployeeType != value))
+				{
+					this.OnEmployeeTypeChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeType = value;
+					this.SendPropertyChanged("EmployeeType");
+					this.OnEmployeeTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HourRate", DbType="VarChar(5)")]
+		public string HourRate
+		{
+			get
+			{
+				return this._HourRate;
+			}
+			set
+			{
+				if ((this._HourRate != value))
+				{
+					this.OnHourRateChanging(value);
+					this.SendPropertyChanging();
+					this._HourRate = value;
+					this.SendPropertyChanged("HourRate");
+					this.OnHourRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RateCategory", DbType="VarChar(50)")]
+		public string RateCategory
+		{
+			get
+			{
+				return this._RateCategory;
+			}
+			set
+			{
+				if ((this._RateCategory != value))
+				{
+					this.OnRateCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._RateCategory = value;
+					this.SendPropertyChanged("RateCategory");
+					this.OnRateCategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_TechnicalEmployee", Storage="_TechnicalEmployee", ThisKey="EmployeeID", OtherKey="TEID", IsUnique=true, IsForeignKey=false)]
+		public TechnicalEmployee TechnicalEmployee
+		{
+			get
+			{
+				return this._TechnicalEmployee.Entity;
+			}
+			set
+			{
+				TechnicalEmployee previousValue = this._TechnicalEmployee.Entity;
+				if (((previousValue != value) 
+							|| (this._TechnicalEmployee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TechnicalEmployee.Entity = null;
+						previousValue.Employee = null;
+					}
+					this._TechnicalEmployee.Entity = value;
+					if ((value != null))
+					{
+						value.Employee = this;
+					}
+					this.SendPropertyChanged("TechnicalEmployee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_FinancialManager", Storage="_FinancialManager", ThisKey="EmployeeID", OtherKey="FMID", IsUnique=true, IsForeignKey=false)]
+		public FinancialManager FinancialManager
+		{
+			get
+			{
+				return this._FinancialManager.Entity;
+			}
+			set
+			{
+				FinancialManager previousValue = this._FinancialManager.Entity;
+				if (((previousValue != value) 
+							|| (this._FinancialManager.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FinancialManager.Entity = null;
+						previousValue.Employee = null;
+					}
+					this._FinancialManager.Entity = value;
+					if ((value != null))
+					{
+						value.Employee = this;
+					}
+					this.SendPropertyChanged("FinancialManager");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_OperationalManager", Storage="_OperationalManager", ThisKey="EmployeeID", OtherKey="OMID", IsUnique=true, IsForeignKey=false)]
+		public OperationalManager OperationalManager
+		{
+			get
+			{
+				return this._OperationalManager.Entity;
+			}
+			set
+			{
+				OperationalManager previousValue = this._OperationalManager.Entity;
+				if (((previousValue != value) 
+							|| (this._OperationalManager.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OperationalManager.Entity = null;
+						previousValue.Employee = null;
+					}
+					this._OperationalManager.Entity = value;
+					if ((value != null))
+					{
+						value.Employee = this;
+					}
+					this.SendPropertyChanged("OperationalManager");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_ProjectManager", Storage="_ProjectManager", ThisKey="EmployeeID", OtherKey="PMID", IsUnique=true, IsForeignKey=false)]
+		public ProjectManager ProjectManager
+		{
+			get
+			{
+				return this._ProjectManager.Entity;
+			}
+			set
+			{
+				ProjectManager previousValue = this._ProjectManager.Entity;
+				if (((previousValue != value) 
+							|| (this._ProjectManager.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProjectManager.Entity = null;
+						previousValue.Employee = null;
+					}
+					this._ProjectManager.Entity = value;
+					if ((value != null))
+					{
+						value.Employee = this;
+					}
+					this.SendPropertyChanged("ProjectManager");
 				}
 			}
 		}
