@@ -13,9 +13,17 @@ namespace ProjectTrackingSystem.OMFolder
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var pm = from a in myPTS.Employees
+                     where a.EmployeeType == "Project Manager"
+                     select a;
 
+            if(pm.Count()!=0)
+            {
+                var pmm = pm.First();
+              //  PMDDL.Value = pmm.FirstName + " " + pmm.LastName;
+            }
         }
-
+        
         
 
         protected void addBtn_Click(object sender, EventArgs e)

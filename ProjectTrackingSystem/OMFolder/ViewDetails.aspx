@@ -18,6 +18,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="jumbotron">
+  <h2 class="text-center">Project Details </h2>
+<div class="well well-lg">
+  Look, I'm in a large well!
+</div>  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+</div>
     <table class="auto-style1">
         <tr>
             <td class="auto-style5">&nbsp;</td>

@@ -29,8 +29,7 @@
       <div class="form-group">
       <label for="inputPN" class="col-lg-2 control-label">Project Name:</label>
       <div class="col-lg-10">
-        <input type="text" class="auto-style34" id="inputPN">
-      </div>
+        <input type="text" class="auto-style34" id="inputPN"></div>
     </div>
       <br />
       <br />
@@ -75,8 +74,9 @@
  <div class="form-group">
       <label for="selectPM" class="col-lg-2 control-label">Assign Project Manager:</label>
       <div class="col-lg-10">
-        <select class="form-control" id="selectPM">
-          <option>PM1</option>
+   <select class="form-control" id="selectPM" runat="server">
+         
+      <option>PM1</option>
           <option>PM2</option>
           <option>PM3</option>
           <option>PM4</option>

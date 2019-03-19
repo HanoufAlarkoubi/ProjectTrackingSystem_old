@@ -34,7 +34,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="~/Adminfolder/HomeAdmin.aspx" runat="server"> Home <span class="glyphicon glyphicon-home"><span class="sr-only">(current)</span></a></li>
+        <li><a href="~/Adminfolder/HomeAdmin.aspx" runat="server"> Home <span class="glyphicon glyphicon-home"><span class="sr-only">(current)</span></a></li>
         <li><a href="~/Adminfolder/AddUser.aspx"  runat="server">Add User <span class="glyphicon glyphicon-plus"></a></li>
         <li><a href="~/Adminfolder/EditUser1.aspx"  runat="server">Edit User <span class="glyphicon glyphicon-pencil"></a></li>
           <li><a href="~/Adminfolder/ClientInfo.aspx"  runat="server">Client Info <span class="glyphicon glyphicon-user"></a></li>
