@@ -18,5 +18,12 @@ namespace ProjectTrackingSystem.PMFolder
         {
 
         }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PtsDataContext myPTS = new PtsDataContext();
+
+           
+            }
     }
 }

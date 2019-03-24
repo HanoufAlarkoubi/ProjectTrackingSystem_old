@@ -53,7 +53,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div class="auto-style35">
+    <div class="auto-style35">
   <h2 class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Search for a project</h2>
        <br />
         <br />

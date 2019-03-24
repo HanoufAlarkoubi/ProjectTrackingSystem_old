@@ -19,10 +19,29 @@
 .form-control{
     width: 22%;
 }
-    </style>
+        .col-lg-10{
+display: inline-block;
+        }
+        .auto-style36 {
+                       display: inline-block;
+            float: left;
+            width:25%;
+            margin-left:0px;
+            margin-right:0px;
+            
+        }
+        
+        .auto-style37 {
+            left: 0px;
+            top: 0px;
+        }
+        </style>
     </asp:Content >
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="well well-lg">
+                   <h2 class="text-center">Create a new Project</h2>
+        <br />
+
  <div class="panel panel-default">
   <div class="panel-heading">Project Information:</div>
   <div class="panel-body">
@@ -35,7 +54,7 @@
       <br />
 
         <div class="form-group">
-      <label for="inputEC" class="col-lg-2 control-label">Estimated Cost:</label>
+      <label for="inputEC" class="col-lg-2 control-label" style="left: 0px; top: -22px">Estimated Cost:</label>
       <div class="col-lg-10">
         <input type="text" class="auto-style34" id="inputEC" >
   </div>
@@ -43,23 +62,156 @@
       <br />
       <br />
 
-    <div class="form-group">
-      <label for="inputESD" class="col-lg-2 control-label">Expected Start Date:</label>
-      <div class="col-lg-10">
-        <input type="date" class="auto-style34" id="inputESD" >
-  </div>
-</div>
-     <br />
-      <br />
 
-        <div class="form-group">
-      <label for="inputEED" class="col-lg-2 control-label">Expected End Date:</label>
-      <div class="col-lg-10">
-        <input type="date" class="auto-style34" id="inputEED" >
-  </div>
-</div>
+     <div class="form-group row flex-v-center">
+        <div class="auto-style36">
+            <label for="from">Expected Start Date:</label>
+        </div>
+        <div class="auto-style36">
+              <select class="form-control" id="select1" runat="server">
+         
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+        </select>
+        </div>
+        <div class="auto-style36">
+<select class="form-control" id="select2" runat="server">
+         
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+      
+        </select>        </div>
+        <div class="auto-style36">
+            <select class="form-control" id="select3" runat="server">
+         
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          <option>2023</option>
+          <option>2024</option>
+      
+        </select>
+        </div>
+    </div>
+      
      <br />
-      <br />
+    
+       <div class="form-group row flex-v-center">
+        <div class="col-xs-3 col-sm-2">
+            <label for="from">Expected End Date:</label>
+        </div>
+        <div class="col-xs-3">
+              <select class="form-control" id="select4" runat="server">
+         
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+        </select>
+        </div>
+        <div class="col-xs-3 text-center">
+<select class="form-control" id="select5" runat="server">
+         
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+      
+        </select>        </div>
+        <div class="col-xs-3">
+            <select class="form-control" id="select6" runat="server">
+         
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          <option>2023</option>
+          <option>2024</option>
+      
+        </select>
+        </div>
+    </div>
+      
+     <br />
+     
+
       <div class="form-group">
       <label for="textAreaDesc" class="col-lg-2 control-label">Description:</label>
       <div class="col-lg-10">

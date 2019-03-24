@@ -67,6 +67,10 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="alert alert-dismissible alert-success" id="alert" style="display: none">
+  <button type="button" class="close" data-dismiss="alert" onclick="$('.alert').hide()">&times;</button>
+  <strong>Well done!</strong> You have successfully added a user!
+</div>
     
     <div class="auto-style27">
   <h2 class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add User</h2><br />

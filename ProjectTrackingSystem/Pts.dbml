@@ -10,8 +10,8 @@
       <Column Name="UnitCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Reason" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="TechnicalEmployee_Assign" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
-      <Association Name="Project_Assign" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
       <Association Name="ProjectManager_Assign" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+      <Association Name="Project_Assign" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TechnicalEmployee" Member="TechnicalEmployees">
@@ -55,8 +55,8 @@
       <Association Name="CaptureQuotation_Submit" Member="Submits" ThisKey="QuotationID" OtherKey="QuotationID" Type="Submit" />
       <Association Name="TechnicalEmployee_CaptureQuotation" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
       <Association Name="Item_CaptureQuotation" Member="Item" ThisKey="ItemID" OtherKey="ItemID" Type="Item" IsForeignKey="true" />
-      <Association Name="Project_CaptureQuotation" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
       <Association Name="ProjectManager_CaptureQuotation" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+      <Association Name="Project_CaptureQuotation" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.[Checkpoint]" Member="Checkpoints">
@@ -130,8 +130,8 @@
       <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PMID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="OperationalManager_OMAssign" Member="OperationalManager" ThisKey="OMID" OtherKey="OMID" Type="OperationalManager" IsForeignKey="true" />
-      <Association Name="Project_OMAssign" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
       <Association Name="ProjectManager_OMAssign" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
+      <Association Name="Project_OMAssign" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.OperationalManager" Member="OperationalManagers">
@@ -190,34 +190,8 @@
       <Column Name="AdditionalComments" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="WieghtedGrade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Feedback_PMFeedback" Member="Feedback" ThisKey="FeedbackID" OtherKey="FeedbackID" Type="Feedback" IsForeignKey="true" />
-      <Association Name="Project_PMFeedback" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
       <Association Name="ProjectManager_PMFeedback" Member="ProjectManager" ThisKey="PMID" OtherKey="PMID" Type="ProjectManager" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Project" Member="Projects">
-    <Type Name="Project">
-      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ExpectedStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="ActualStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ExpectedEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="ActualEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="EstimatedCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ActualCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="OMID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Project_Assign" Member="Assigns" ThisKey="ProjectID" OtherKey="ProjectID" Type="Assign" />
-      <Association Name="Project_CaptureQuotation" Member="CaptureQuotations" ThisKey="ProjectID" OtherKey="ProjectID" Type="CaptureQuotation" />
-      <Association Name="Project_Document" Member="Documents" ThisKey="ProjectID" OtherKey="ProjectID" Type="Document" />
-      <Association Name="Project_OMAssign" Member="OMAssigns" ThisKey="ProjectID" OtherKey="ProjectID" Type="OMAssign" />
-      <Association Name="Project_PMFeedback" Member="PMFeedbacks" ThisKey="ProjectID" OtherKey="ProjectID" Type="PMFeedback" />
-      <Association Name="Project_ProjectAttachment" Member="ProjectAttachments" ThisKey="ProjectID" OtherKey="ProjectID" Type="ProjectAttachment" />
-      <Association Name="Project_Recruit" Member="Recruits" ThisKey="ProjectID" OtherKey="ProjectID" Type="Recruit" />
-      <Association Name="Project_SubmittedBy" Member="SubmittedBies" ThisKey="ProjectID" OtherKey="ProjectID" Type="SubmittedBy" />
-      <Association Name="Client_Project" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
-      <Association Name="OperationalManager_Project" Member="OperationalManager" ThisKey="OMID" OtherKey="OMID" Type="OperationalManager" IsForeignKey="true" />
+      <Association Name="Project_PMFeedback" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ProjectAttachment" Member="ProjectAttachments">
@@ -226,8 +200,8 @@
       <Column Name="TEID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="AttachmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Attachment_ProjectAttachment" Member="Attachment" ThisKey="AttachmentID" OtherKey="AttachmentID" Type="Attachment" IsForeignKey="true" />
-      <Association Name="Project_ProjectAttachment" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
       <Association Name="TechnicalEmployee_ProjectAttachment" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+      <Association Name="Project_ProjectAttachment" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ProjectManager" Member="ProjectManagers">
@@ -262,8 +236,8 @@
       <Column Name="TotalCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ReasonForRecruitment" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="OutsourceLabor_Recruit" Member="OutsourceLabor" ThisKey="OutsourceGroupID" OtherKey="OutsourceGroupID" Type="OutsourceLabor" IsForeignKey="true" />
-      <Association Name="Project_Recruit" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
       <Association Name="TechnicalEmployee_Recruit" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+      <Association Name="Project_Recruit" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Submits" Member="Submits">
@@ -282,8 +256,8 @@
       <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DesignDocumentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="DesignDocument_SubmittedBy" Member="DesignDocument" ThisKey="DesignDocumentID" OtherKey="DesignDocumentID" Type="DesignDocument" IsForeignKey="true" />
-      <Association Name="Project_SubmittedBy" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
       <Association Name="TechnicalEmployee_SubmittedBy" Member="TechnicalEmployee" ThisKey="TEID" OtherKey="TEID" Type="TechnicalEmployee" IsForeignKey="true" />
+      <Association Name="Project_SubmittedBy" Member="Project" ThisKey="ProjectID" OtherKey="ProjectID" Type="Project" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Employee" Member="Employees">
@@ -303,6 +277,32 @@
       <Association Name="Employee_FinancialManager" Member="FinancialManager" ThisKey="EmployeeID" OtherKey="FMID" Type="FinancialManager" Cardinality="One" />
       <Association Name="Employee_OperationalManager" Member="OperationalManager" ThisKey="EmployeeID" OtherKey="OMID" Type="OperationalManager" Cardinality="One" />
       <Association Name="Employee_ProjectManager" Member="ProjectManager" ThisKey="EmployeeID" OtherKey="PMID" Type="ProjectManager" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpectedStartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ActualStartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ExpectedEndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ActualEndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EstimatedCost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActualCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OMID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Project_Assign" Member="Assigns" ThisKey="ProjectID" OtherKey="ProjectID" Type="Assign" />
+      <Association Name="Project_CaptureQuotation" Member="CaptureQuotations" ThisKey="ProjectID" OtherKey="ProjectID" Type="CaptureQuotation" />
+      <Association Name="Project_Document" Member="Documents" ThisKey="ProjectID" OtherKey="ProjectID" Type="Document" />
+      <Association Name="Project_OMAssign" Member="OMAssigns" ThisKey="ProjectID" OtherKey="ProjectID" Type="OMAssign" />
+      <Association Name="Project_PMFeedback" Member="PMFeedbacks" ThisKey="ProjectID" OtherKey="ProjectID" Type="PMFeedback" />
+      <Association Name="Project_ProjectAttachment" Member="ProjectAttachments" ThisKey="ProjectID" OtherKey="ProjectID" Type="ProjectAttachment" />
+      <Association Name="Project_Recruit" Member="Recruits" ThisKey="ProjectID" OtherKey="ProjectID" Type="Recruit" />
+      <Association Name="Project_SubmittedBy" Member="SubmittedBies" ThisKey="ProjectID" OtherKey="ProjectID" Type="SubmittedBy" />
+      <Association Name="Client_Project" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
+      <Association Name="OperationalManager_Project" Member="OperationalManager" ThisKey="OMID" OtherKey="OMID" Type="OperationalManager" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

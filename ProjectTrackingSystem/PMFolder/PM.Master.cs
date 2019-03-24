@@ -19,7 +19,7 @@ namespace ProjectTrackingSystem.PMFolder
                     {
                         Employee myemployee = (Employee)Session[name];
 
-                        Label1.Text = myemployee.FirstName + " " + myemployee.LastName;
+                        Label2.InnerText = myemployee.FirstName + " " + myemployee.LastName;
                     }
                 }
             }

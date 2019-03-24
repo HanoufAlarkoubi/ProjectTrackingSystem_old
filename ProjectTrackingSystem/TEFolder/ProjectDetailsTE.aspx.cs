@@ -9,19 +9,42 @@ namespace ProjectTrackingSystem.TEFolder
 {
     public partial class WebForm7 : System.Web.UI.Page
     {
+        PtsDataContext myPTS = new PtsDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session.Count!=0)
+            {
+                foreach(string a in Session.Keys)
+                {
+                    if(a=="ProjectName")
+                    {
+                        Span2.InnerText = (string)Session[a];
+
+                    }
+                }
+            }
+
+            var prid = from a in myPTS.Projects
+                       where a.Name == Span2.InnerText
+                       select a;
+
+            if(prid.Count()!=0)
+            {
+                var prdet = prid.First();
+                Span3.InnerText = prdet.ExpectedEndDate.ToString("MM/dd/yyyy");
+
+            }
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void addBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-
-        }
+            //fileupload.saveas(mappath("Documents/"+fileupload1.text)
+            //insert in design document table
+            //a.layout=fileupload1.text;
+            //submit insert + changes in design tables
+            //insert in submittedby
+         }
+        
     }
 }

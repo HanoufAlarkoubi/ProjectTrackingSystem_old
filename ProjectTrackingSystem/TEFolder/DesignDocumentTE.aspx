@@ -10,7 +10,7 @@
         width: 699px;
     }
     .auto-style10 {
-        margin-left: 29px;
+        margin-left: 644px;
     }
     .auto-style12 {
         width: 699px;
@@ -22,32 +22,21 @@
             width: 699px;
             text-align: left;
         }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="auto-style5">
-    <tr>
-        <td class="auto-style13">&nbsp;</td>
-        <td class="auto-style12">
-            <h3 class="auto-style8"><strong>Upload Design Document</strong></h3>
-            <p class="auto-style8">
-                &nbsp;</p>
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style13">&nbsp;</td>
-        <td class="auto-style14">
-            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="auto-style10" />
-        </td>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style13">&nbsp;</td>
-        <td class="auto-style9">&nbsp;</td>
-        <td>
-            <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" />
-        </td>
-    </tr>
-</table>
+   <div class="jumbotron">
+  <h2 class="text-center">Upload Design Document</h2>
+       <div class="text-center">
+                      <br />
+
+           <br />
+<asp:FileUpload ID="FileUpload1" runat="server" CssClass="auto-style10" />
+       </div>
+       <br />
+       <br />
+<a href="#" class="btn btn-default" style="color: #FFFFFF; background-color: #2E2C78; margin-left: 755px;" runat="server" id="AddBtn" onserverclick="addBtn_Click">Add</a>
+        <button type="reset" class="btn btn-default">Cancel</button></div>
+    
 </asp:Content>

@@ -81,9 +81,6 @@ namespace ProjectTrackingSystem
     partial void InsertPMFeedback(PMFeedback instance);
     partial void UpdatePMFeedback(PMFeedback instance);
     partial void DeletePMFeedback(PMFeedback instance);
-    partial void InsertProject(Project instance);
-    partial void UpdateProject(Project instance);
-    partial void DeleteProject(Project instance);
     partial void InsertProjectAttachment(ProjectAttachment instance);
     partial void UpdateProjectAttachment(ProjectAttachment instance);
     partial void DeleteProjectAttachment(ProjectAttachment instance);
@@ -105,6 +102,9 @@ namespace ProjectTrackingSystem
     partial void InsertEmployee(Employee instance);
     partial void UpdateEmployee(Employee instance);
     partial void DeleteEmployee(Employee instance);
+    partial void InsertProject(Project instance);
+    partial void UpdateProject(Project instance);
+    partial void DeleteProject(Project instance);
     #endregion
 		
 		public PtsDataContext() : 
@@ -273,14 +273,6 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		public System.Data.Linq.Table<Project> Projects
-		{
-			get
-			{
-				return this.GetTable<Project>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ProjectAttachment> ProjectAttachments
 		{
 			get
@@ -336,6 +328,14 @@ namespace ProjectTrackingSystem
 				return this.GetTable<Employee>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Project> Projects
+		{
+			get
+			{
+				return this.GetTable<Project>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Assigns")]
@@ -360,9 +360,9 @@ namespace ProjectTrackingSystem
 		
 		private EntityRef<TechnicalEmployee> _TechnicalEmployee;
 		
-		private EntityRef<Project> _Project;
-		
 		private EntityRef<ProjectManager> _ProjectManager;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -387,8 +387,8 @@ namespace ProjectTrackingSystem
 		public Assign()
 		{
 			this._TechnicalEmployee = default(EntityRef<TechnicalEmployee>);
-			this._Project = default(EntityRef<Project>);
 			this._ProjectManager = default(EntityRef<ProjectManager>);
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
@@ -578,40 +578,6 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Assign", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
-		public Project Project
-		{
-			get
-			{
-				return this._Project.Entity;
-			}
-			set
-			{
-				Project previousValue = this._Project.Entity;
-				if (((previousValue != value) 
-							|| (this._Project.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Project.Entity = null;
-						previousValue.Assigns.Remove(this);
-					}
-					this._Project.Entity = value;
-					if ((value != null))
-					{
-						value.Assigns.Add(this);
-						this._ProjectID = value.ProjectID;
-					}
-					else
-					{
-						this._ProjectID = default(int);
-					}
-					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectManager_Assign", Storage="_ProjectManager", ThisKey="PMID", OtherKey="PMID", IsForeignKey=true)]
 		public ProjectManager ProjectManager
 		{
@@ -642,6 +608,40 @@ namespace ProjectTrackingSystem
 						this._PMID = default(int);
 					}
 					this.SendPropertyChanged("ProjectManager");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Assign", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.Assigns.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.Assigns.Add(this);
+						this._ProjectID = value.ProjectID;
+					}
+					else
+					{
+						this._ProjectID = default(int);
+					}
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}
@@ -1194,9 +1194,9 @@ namespace ProjectTrackingSystem
 		
 		private EntityRef<Item> _Item;
 		
-		private EntityRef<Project> _Project;
-		
 		private EntityRef<ProjectManager> _ProjectManager;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1235,8 +1235,8 @@ namespace ProjectTrackingSystem
 			this._Submits = new EntitySet<Submit>(new Action<Submit>(this.attach_Submits), new Action<Submit>(this.detach_Submits));
 			this._TechnicalEmployee = default(EntityRef<TechnicalEmployee>);
 			this._Item = default(EntityRef<Item>);
-			this._Project = default(EntityRef<Project>);
 			this._ProjectManager = default(EntityRef<ProjectManager>);
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
@@ -1597,40 +1597,6 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CaptureQuotation", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
-		public Project Project
-		{
-			get
-			{
-				return this._Project.Entity;
-			}
-			set
-			{
-				Project previousValue = this._Project.Entity;
-				if (((previousValue != value) 
-							|| (this._Project.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Project.Entity = null;
-						previousValue.CaptureQuotations.Remove(this);
-					}
-					this._Project.Entity = value;
-					if ((value != null))
-					{
-						value.CaptureQuotations.Add(this);
-						this._ProjectID = value.ProjectID;
-					}
-					else
-					{
-						this._ProjectID = default(int);
-					}
-					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectManager_CaptureQuotation", Storage="_ProjectManager", ThisKey="PMID", OtherKey="PMID", IsForeignKey=true)]
 		public ProjectManager ProjectManager
 		{
@@ -1661,6 +1627,40 @@ namespace ProjectTrackingSystem
 						this._PMID = default(int);
 					}
 					this.SendPropertyChanged("ProjectManager");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CaptureQuotation", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.CaptureQuotations.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.CaptureQuotations.Add(this);
+						this._ProjectID = value.ProjectID;
+					}
+					else
+					{
+						this._ProjectID = default(int);
+					}
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}
@@ -2971,9 +2971,9 @@ namespace ProjectTrackingSystem
 		
 		private EntityRef<OperationalManager> _OperationalManager;
 		
-		private EntityRef<Project> _Project;
-		
 		private EntityRef<ProjectManager> _ProjectManager;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2990,8 +2990,8 @@ namespace ProjectTrackingSystem
 		public OMAssign()
 		{
 			this._OperationalManager = default(EntityRef<OperationalManager>);
-			this._Project = default(EntityRef<Project>);
 			this._ProjectManager = default(EntityRef<ProjectManager>);
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
@@ -3101,40 +3101,6 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_OMAssign", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
-		public Project Project
-		{
-			get
-			{
-				return this._Project.Entity;
-			}
-			set
-			{
-				Project previousValue = this._Project.Entity;
-				if (((previousValue != value) 
-							|| (this._Project.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Project.Entity = null;
-						previousValue.OMAssigns.Remove(this);
-					}
-					this._Project.Entity = value;
-					if ((value != null))
-					{
-						value.OMAssigns.Add(this);
-						this._ProjectID = value.ProjectID;
-					}
-					else
-					{
-						this._ProjectID = default(int);
-					}
-					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectManager_OMAssign", Storage="_ProjectManager", ThisKey="PMID", OtherKey="PMID", IsForeignKey=true)]
 		public ProjectManager ProjectManager
 		{
@@ -3165,6 +3131,40 @@ namespace ProjectTrackingSystem
 						this._PMID = default(int);
 					}
 					this.SendPropertyChanged("ProjectManager");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_OMAssign", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.OMAssigns.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.OMAssigns.Add(this);
+						this._ProjectID = value.ProjectID;
+					}
+					else
+					{
+						this._ProjectID = default(int);
+					}
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}
@@ -4194,9 +4194,9 @@ namespace ProjectTrackingSystem
 		
 		private EntityRef<Feedback> _Feedback;
 		
-		private EntityRef<Project> _Project;
-		
 		private EntityRef<ProjectManager> _ProjectManager;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4219,8 +4219,8 @@ namespace ProjectTrackingSystem
 		public PMFeedback()
 		{
 			this._Feedback = default(EntityRef<Feedback>);
-			this._Project = default(EntityRef<Project>);
 			this._ProjectManager = default(EntityRef<ProjectManager>);
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
@@ -4390,40 +4390,6 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_PMFeedback", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
-		public Project Project
-		{
-			get
-			{
-				return this._Project.Entity;
-			}
-			set
-			{
-				Project previousValue = this._Project.Entity;
-				if (((previousValue != value) 
-							|| (this._Project.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Project.Entity = null;
-						previousValue.PMFeedbacks.Remove(this);
-					}
-					this._Project.Entity = value;
-					if ((value != null))
-					{
-						value.PMFeedbacks.Add(this);
-						this._ProjectID = value.ProjectID;
-					}
-					else
-					{
-						this._ProjectID = default(int);
-					}
-					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectManager_PMFeedback", Storage="_ProjectManager", ThisKey="PMID", OtherKey="PMID", IsForeignKey=true)]
 		public ProjectManager ProjectManager
 		{
@@ -4458,538 +4424,36 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Project")]
-	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ProjectID;
-		
-		private string _Name;
-		
-		private System.DateTime _ExpectedStartDate;
-		
-		private System.Nullable<System.DateTime> _ActualStartDate;
-		
-		private System.DateTime _ExpectedEndDate;
-		
-		private System.DateTime _ActualEndDate;
-		
-		private string _Status;
-		
-		private string _Description;
-		
-		private int _EstimatedCost;
-		
-		private System.Nullable<int> _ActualCost;
-		
-		private int _ClientID;
-		
-		private int _OMID;
-		
-		private EntitySet<Assign> _Assigns;
-		
-		private EntitySet<CaptureQuotation> _CaptureQuotations;
-		
-		private EntitySet<Document> _Documents;
-		
-		private EntitySet<OMAssign> _OMAssigns;
-		
-		private EntitySet<PMFeedback> _PMFeedbacks;
-		
-		private EntitySet<ProjectAttachment> _ProjectAttachments;
-		
-		private EntitySet<Recruit> _Recruits;
-		
-		private EntitySet<SubmittedBy> _SubmittedBies;
-		
-		private EntityRef<Client> _Client;
-		
-		private EntityRef<OperationalManager> _OperationalManager;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnProjectIDChanging(int value);
-    partial void OnProjectIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnExpectedStartDateChanging(System.DateTime value);
-    partial void OnExpectedStartDateChanged();
-    partial void OnActualStartDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnActualStartDateChanged();
-    partial void OnExpectedEndDateChanging(System.DateTime value);
-    partial void OnExpectedEndDateChanged();
-    partial void OnActualEndDateChanging(System.DateTime value);
-    partial void OnActualEndDateChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnEstimatedCostChanging(int value);
-    partial void OnEstimatedCostChanged();
-    partial void OnActualCostChanging(System.Nullable<int> value);
-    partial void OnActualCostChanged();
-    partial void OnClientIDChanging(int value);
-    partial void OnClientIDChanged();
-    partial void OnOMIDChanging(int value);
-    partial void OnOMIDChanged();
-    #endregion
-		
-		public Project()
-		{
-			this._Assigns = new EntitySet<Assign>(new Action<Assign>(this.attach_Assigns), new Action<Assign>(this.detach_Assigns));
-			this._CaptureQuotations = new EntitySet<CaptureQuotation>(new Action<CaptureQuotation>(this.attach_CaptureQuotations), new Action<CaptureQuotation>(this.detach_CaptureQuotations));
-			this._Documents = new EntitySet<Document>(new Action<Document>(this.attach_Documents), new Action<Document>(this.detach_Documents));
-			this._OMAssigns = new EntitySet<OMAssign>(new Action<OMAssign>(this.attach_OMAssigns), new Action<OMAssign>(this.detach_OMAssigns));
-			this._PMFeedbacks = new EntitySet<PMFeedback>(new Action<PMFeedback>(this.attach_PMFeedbacks), new Action<PMFeedback>(this.detach_PMFeedbacks));
-			this._ProjectAttachments = new EntitySet<ProjectAttachment>(new Action<ProjectAttachment>(this.attach_ProjectAttachments), new Action<ProjectAttachment>(this.detach_ProjectAttachments));
-			this._Recruits = new EntitySet<Recruit>(new Action<Recruit>(this.attach_Recruits), new Action<Recruit>(this.detach_Recruits));
-			this._SubmittedBies = new EntitySet<SubmittedBy>(new Action<SubmittedBy>(this.attach_SubmittedBies), new Action<SubmittedBy>(this.detach_SubmittedBies));
-			this._Client = default(EntityRef<Client>);
-			this._OperationalManager = default(EntityRef<OperationalManager>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ProjectID
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_PMFeedback", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
+		public Project Project
 		{
 			get
 			{
-				return this._ProjectID;
+				return this._Project.Entity;
 			}
 			set
 			{
-				if ((this._ProjectID != value))
-				{
-					this.OnProjectIDChanging(value);
-					this.SendPropertyChanging();
-					this._ProjectID = value;
-					this.SendPropertyChanged("ProjectID");
-					this.OnProjectIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectedStartDate", DbType="DateTime NOT NULL")]
-		public System.DateTime ExpectedStartDate
-		{
-			get
-			{
-				return this._ExpectedStartDate;
-			}
-			set
-			{
-				if ((this._ExpectedStartDate != value))
-				{
-					this.OnExpectedStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._ExpectedStartDate = value;
-					this.SendPropertyChanged("ExpectedStartDate");
-					this.OnExpectedStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualStartDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ActualStartDate
-		{
-			get
-			{
-				return this._ActualStartDate;
-			}
-			set
-			{
-				if ((this._ActualStartDate != value))
-				{
-					this.OnActualStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._ActualStartDate = value;
-					this.SendPropertyChanged("ActualStartDate");
-					this.OnActualStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectedEndDate", DbType="DateTime NOT NULL")]
-		public System.DateTime ExpectedEndDate
-		{
-			get
-			{
-				return this._ExpectedEndDate;
-			}
-			set
-			{
-				if ((this._ExpectedEndDate != value))
-				{
-					this.OnExpectedEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._ExpectedEndDate = value;
-					this.SendPropertyChanged("ExpectedEndDate");
-					this.OnExpectedEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualEndDate", DbType="DateTime NOT NULL")]
-		public System.DateTime ActualEndDate
-		{
-			get
-			{
-				return this._ActualEndDate;
-			}
-			set
-			{
-				if ((this._ActualEndDate != value))
-				{
-					this.OnActualEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._ActualEndDate = value;
-					this.SendPropertyChanged("ActualEndDate");
-					this.OnActualEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstimatedCost", DbType="Int NOT NULL")]
-		public int EstimatedCost
-		{
-			get
-			{
-				return this._EstimatedCost;
-			}
-			set
-			{
-				if ((this._EstimatedCost != value))
-				{
-					this.OnEstimatedCostChanging(value);
-					this.SendPropertyChanging();
-					this._EstimatedCost = value;
-					this.SendPropertyChanged("EstimatedCost");
-					this.OnEstimatedCostChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualCost", DbType="Int")]
-		public System.Nullable<int> ActualCost
-		{
-			get
-			{
-				return this._ActualCost;
-			}
-			set
-			{
-				if ((this._ActualCost != value))
-				{
-					this.OnActualCostChanging(value);
-					this.SendPropertyChanging();
-					this._ActualCost = value;
-					this.SendPropertyChanged("ActualCost");
-					this.OnActualCostChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", DbType="Int NOT NULL")]
-		public int ClientID
-		{
-			get
-			{
-				return this._ClientID;
-			}
-			set
-			{
-				if ((this._ClientID != value))
-				{
-					if (this._Client.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnClientIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClientID = value;
-					this.SendPropertyChanged("ClientID");
-					this.OnClientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OMID", DbType="Int NOT NULL")]
-		public int OMID
-		{
-			get
-			{
-				return this._OMID;
-			}
-			set
-			{
-				if ((this._OMID != value))
-				{
-					if (this._OperationalManager.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnOMIDChanging(value);
-					this.SendPropertyChanging();
-					this._OMID = value;
-					this.SendPropertyChanged("OMID");
-					this.OnOMIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Assign", Storage="_Assigns", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<Assign> Assigns
-		{
-			get
-			{
-				return this._Assigns;
-			}
-			set
-			{
-				this._Assigns.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CaptureQuotation", Storage="_CaptureQuotations", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<CaptureQuotation> CaptureQuotations
-		{
-			get
-			{
-				return this._CaptureQuotations;
-			}
-			set
-			{
-				this._CaptureQuotations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Document", Storage="_Documents", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<Document> Documents
-		{
-			get
-			{
-				return this._Documents;
-			}
-			set
-			{
-				this._Documents.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_OMAssign", Storage="_OMAssigns", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<OMAssign> OMAssigns
-		{
-			get
-			{
-				return this._OMAssigns;
-			}
-			set
-			{
-				this._OMAssigns.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_PMFeedback", Storage="_PMFeedbacks", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<PMFeedback> PMFeedbacks
-		{
-			get
-			{
-				return this._PMFeedbacks;
-			}
-			set
-			{
-				this._PMFeedbacks.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectAttachment", Storage="_ProjectAttachments", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<ProjectAttachment> ProjectAttachments
-		{
-			get
-			{
-				return this._ProjectAttachments;
-			}
-			set
-			{
-				this._ProjectAttachments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Recruit", Storage="_Recruits", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<Recruit> Recruits
-		{
-			get
-			{
-				return this._Recruits;
-			}
-			set
-			{
-				this._Recruits.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_SubmittedBy", Storage="_SubmittedBies", ThisKey="ProjectID", OtherKey="ProjectID")]
-		public EntitySet<SubmittedBy> SubmittedBies
-		{
-			get
-			{
-				return this._SubmittedBies;
-			}
-			set
-			{
-				this._SubmittedBies.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Project", Storage="_Client", ThisKey="ClientID", OtherKey="ClientID", IsForeignKey=true)]
-		public Client Client
-		{
-			get
-			{
-				return this._Client.Entity;
-			}
-			set
-			{
-				Client previousValue = this._Client.Entity;
+				Project previousValue = this._Project.Entity;
 				if (((previousValue != value) 
-							|| (this._Client.HasLoadedOrAssignedValue == false)))
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Client.Entity = null;
-						previousValue.Projects.Remove(this);
+						this._Project.Entity = null;
+						previousValue.PMFeedbacks.Remove(this);
 					}
-					this._Client.Entity = value;
+					this._Project.Entity = value;
 					if ((value != null))
 					{
-						value.Projects.Add(this);
-						this._ClientID = value.ClientID;
+						value.PMFeedbacks.Add(this);
+						this._ProjectID = value.ProjectID;
 					}
 					else
 					{
-						this._ClientID = default(int);
+						this._ProjectID = default(int);
 					}
-					this.SendPropertyChanged("Client");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OperationalManager_Project", Storage="_OperationalManager", ThisKey="OMID", OtherKey="OMID", IsForeignKey=true)]
-		public OperationalManager OperationalManager
-		{
-			get
-			{
-				return this._OperationalManager.Entity;
-			}
-			set
-			{
-				OperationalManager previousValue = this._OperationalManager.Entity;
-				if (((previousValue != value) 
-							|| (this._OperationalManager.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._OperationalManager.Entity = null;
-						previousValue.Projects.Remove(this);
-					}
-					this._OperationalManager.Entity = value;
-					if ((value != null))
-					{
-						value.Projects.Add(this);
-						this._OMID = value.OMID;
-					}
-					else
-					{
-						this._OMID = default(int);
-					}
-					this.SendPropertyChanged("OperationalManager");
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}
@@ -5012,102 +4476,6 @@ namespace ProjectTrackingSystem
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Assigns(Assign entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_Assigns(Assign entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_CaptureQuotations(CaptureQuotation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_CaptureQuotations(CaptureQuotation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_Documents(Document entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_Documents(Document entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_OMAssigns(OMAssign entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_OMAssigns(OMAssign entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_PMFeedbacks(PMFeedback entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_PMFeedbacks(PMFeedback entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_ProjectAttachments(ProjectAttachment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_ProjectAttachments(ProjectAttachment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_Recruits(Recruit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_Recruits(Recruit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
-		private void attach_SubmittedBies(SubmittedBy entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_SubmittedBies(SubmittedBy entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
 		}
 	}
 	
@@ -5125,9 +4493,9 @@ namespace ProjectTrackingSystem
 		
 		private EntityRef<Attachment> _Attachment;
 		
-		private EntityRef<Project> _Project;
-		
 		private EntityRef<TechnicalEmployee> _TechnicalEmployee;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5144,8 +4512,8 @@ namespace ProjectTrackingSystem
 		public ProjectAttachment()
 		{
 			this._Attachment = default(EntityRef<Attachment>);
-			this._Project = default(EntityRef<Project>);
 			this._TechnicalEmployee = default(EntityRef<TechnicalEmployee>);
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
@@ -5255,40 +4623,6 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectAttachment", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
-		public Project Project
-		{
-			get
-			{
-				return this._Project.Entity;
-			}
-			set
-			{
-				Project previousValue = this._Project.Entity;
-				if (((previousValue != value) 
-							|| (this._Project.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Project.Entity = null;
-						previousValue.ProjectAttachments.Remove(this);
-					}
-					this._Project.Entity = value;
-					if ((value != null))
-					{
-						value.ProjectAttachments.Add(this);
-						this._ProjectID = value.ProjectID;
-					}
-					else
-					{
-						this._ProjectID = default(int);
-					}
-					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TechnicalEmployee_ProjectAttachment", Storage="_TechnicalEmployee", ThisKey="TEID", OtherKey="TEID", IsForeignKey=true)]
 		public TechnicalEmployee TechnicalEmployee
 		{
@@ -5319,6 +4653,40 @@ namespace ProjectTrackingSystem
 						this._TEID = default(int);
 					}
 					this.SendPropertyChanged("TechnicalEmployee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectAttachment", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.ProjectAttachments.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.ProjectAttachments.Add(this);
+						this._ProjectID = value.ProjectID;
+					}
+					else
+					{
+						this._ProjectID = default(int);
+					}
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}
@@ -5862,9 +5230,9 @@ namespace ProjectTrackingSystem
 		
 		private EntityRef<OutsourceLabor> _OutsourceLabor;
 		
-		private EntityRef<Project> _Project;
-		
 		private EntityRef<TechnicalEmployee> _TechnicalEmployee;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5887,8 +5255,8 @@ namespace ProjectTrackingSystem
 		public Recruit()
 		{
 			this._OutsourceLabor = default(EntityRef<OutsourceLabor>);
-			this._Project = default(EntityRef<Project>);
 			this._TechnicalEmployee = default(EntityRef<TechnicalEmployee>);
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
@@ -6058,40 +5426,6 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Recruit", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
-		public Project Project
-		{
-			get
-			{
-				return this._Project.Entity;
-			}
-			set
-			{
-				Project previousValue = this._Project.Entity;
-				if (((previousValue != value) 
-							|| (this._Project.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Project.Entity = null;
-						previousValue.Recruits.Remove(this);
-					}
-					this._Project.Entity = value;
-					if ((value != null))
-					{
-						value.Recruits.Add(this);
-						this._ProjectID = value.ProjectID;
-					}
-					else
-					{
-						this._ProjectID = default(int);
-					}
-					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TechnicalEmployee_Recruit", Storage="_TechnicalEmployee", ThisKey="TEID", OtherKey="TEID", IsForeignKey=true)]
 		public TechnicalEmployee TechnicalEmployee
 		{
@@ -6122,6 +5456,40 @@ namespace ProjectTrackingSystem
 						this._TEID = default(int);
 					}
 					this.SendPropertyChanged("TechnicalEmployee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Recruit", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.Recruits.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.Recruits.Add(this);
+						this._ProjectID = value.ProjectID;
+					}
+					else
+					{
+						this._ProjectID = default(int);
+					}
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}
@@ -6394,9 +5762,9 @@ namespace ProjectTrackingSystem
 		
 		private EntityRef<DesignDocument> _DesignDocument;
 		
-		private EntityRef<Project> _Project;
-		
 		private EntityRef<TechnicalEmployee> _TechnicalEmployee;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -6413,8 +5781,8 @@ namespace ProjectTrackingSystem
 		public SubmittedBy()
 		{
 			this._DesignDocument = default(EntityRef<DesignDocument>);
-			this._Project = default(EntityRef<Project>);
 			this._TechnicalEmployee = default(EntityRef<TechnicalEmployee>);
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
@@ -6524,40 +5892,6 @@ namespace ProjectTrackingSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_SubmittedBy", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
-		public Project Project
-		{
-			get
-			{
-				return this._Project.Entity;
-			}
-			set
-			{
-				Project previousValue = this._Project.Entity;
-				if (((previousValue != value) 
-							|| (this._Project.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Project.Entity = null;
-						previousValue.SubmittedBies.Remove(this);
-					}
-					this._Project.Entity = value;
-					if ((value != null))
-					{
-						value.SubmittedBies.Add(this);
-						this._ProjectID = value.ProjectID;
-					}
-					else
-					{
-						this._ProjectID = default(int);
-					}
-					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TechnicalEmployee_SubmittedBy", Storage="_TechnicalEmployee", ThisKey="TEID", OtherKey="TEID", IsForeignKey=true)]
 		public TechnicalEmployee TechnicalEmployee
 		{
@@ -6588,6 +5922,40 @@ namespace ProjectTrackingSystem
 						this._TEID = default(int);
 					}
 					this.SendPropertyChanged("TechnicalEmployee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_SubmittedBy", Storage="_Project", ThisKey="ProjectID", OtherKey="ProjectID", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.SubmittedBies.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.SubmittedBies.Add(this);
+						this._ProjectID = value.ProjectID;
+					}
+					else
+					{
+						this._ProjectID = default(int);
+					}
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}
@@ -7040,6 +6408,638 @@ namespace ProjectTrackingSystem
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Project")]
+	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProjectID;
+		
+		private string _Name;
+		
+		private System.DateTime _ExpectedStartDate;
+		
+		private System.Nullable<System.DateTime> _ActualStartDate;
+		
+		private System.DateTime _ExpectedEndDate;
+		
+		private System.Nullable<System.DateTime> _ActualEndDate;
+		
+		private string _Status;
+		
+		private string _Description;
+		
+		private int _EstimatedCost;
+		
+		private System.Nullable<int> _ActualCost;
+		
+		private int _ClientID;
+		
+		private int _OMID;
+		
+		private EntitySet<Assign> _Assigns;
+		
+		private EntitySet<CaptureQuotation> _CaptureQuotations;
+		
+		private EntitySet<Document> _Documents;
+		
+		private EntitySet<OMAssign> _OMAssigns;
+		
+		private EntitySet<PMFeedback> _PMFeedbacks;
+		
+		private EntitySet<ProjectAttachment> _ProjectAttachments;
+		
+		private EntitySet<Recruit> _Recruits;
+		
+		private EntitySet<SubmittedBy> _SubmittedBies;
+		
+		private EntityRef<Client> _Client;
+		
+		private EntityRef<OperationalManager> _OperationalManager;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProjectIDChanging(int value);
+    partial void OnProjectIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnExpectedStartDateChanging(System.DateTime value);
+    partial void OnExpectedStartDateChanged();
+    partial void OnActualStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnActualStartDateChanged();
+    partial void OnExpectedEndDateChanging(System.DateTime value);
+    partial void OnExpectedEndDateChanged();
+    partial void OnActualEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnActualEndDateChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnEstimatedCostChanging(int value);
+    partial void OnEstimatedCostChanged();
+    partial void OnActualCostChanging(System.Nullable<int> value);
+    partial void OnActualCostChanged();
+    partial void OnClientIDChanging(int value);
+    partial void OnClientIDChanged();
+    partial void OnOMIDChanging(int value);
+    partial void OnOMIDChanged();
+    #endregion
+		
+		public Project()
+		{
+			this._Assigns = new EntitySet<Assign>(new Action<Assign>(this.attach_Assigns), new Action<Assign>(this.detach_Assigns));
+			this._CaptureQuotations = new EntitySet<CaptureQuotation>(new Action<CaptureQuotation>(this.attach_CaptureQuotations), new Action<CaptureQuotation>(this.detach_CaptureQuotations));
+			this._Documents = new EntitySet<Document>(new Action<Document>(this.attach_Documents), new Action<Document>(this.detach_Documents));
+			this._OMAssigns = new EntitySet<OMAssign>(new Action<OMAssign>(this.attach_OMAssigns), new Action<OMAssign>(this.detach_OMAssigns));
+			this._PMFeedbacks = new EntitySet<PMFeedback>(new Action<PMFeedback>(this.attach_PMFeedbacks), new Action<PMFeedback>(this.detach_PMFeedbacks));
+			this._ProjectAttachments = new EntitySet<ProjectAttachment>(new Action<ProjectAttachment>(this.attach_ProjectAttachments), new Action<ProjectAttachment>(this.detach_ProjectAttachments));
+			this._Recruits = new EntitySet<Recruit>(new Action<Recruit>(this.attach_Recruits), new Action<Recruit>(this.detach_Recruits));
+			this._SubmittedBies = new EntitySet<SubmittedBy>(new Action<SubmittedBy>(this.attach_SubmittedBies), new Action<SubmittedBy>(this.detach_SubmittedBies));
+			this._Client = default(EntityRef<Client>);
+			this._OperationalManager = default(EntityRef<OperationalManager>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ProjectID
+		{
+			get
+			{
+				return this._ProjectID;
+			}
+			set
+			{
+				if ((this._ProjectID != value))
+				{
+					this.OnProjectIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectID = value;
+					this.SendPropertyChanged("ProjectID");
+					this.OnProjectIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectedStartDate", DbType="Date NOT NULL")]
+		public System.DateTime ExpectedStartDate
+		{
+			get
+			{
+				return this._ExpectedStartDate;
+			}
+			set
+			{
+				if ((this._ExpectedStartDate != value))
+				{
+					this.OnExpectedStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._ExpectedStartDate = value;
+					this.SendPropertyChanged("ExpectedStartDate");
+					this.OnExpectedStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualStartDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ActualStartDate
+		{
+			get
+			{
+				return this._ActualStartDate;
+			}
+			set
+			{
+				if ((this._ActualStartDate != value))
+				{
+					this.OnActualStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._ActualStartDate = value;
+					this.SendPropertyChanged("ActualStartDate");
+					this.OnActualStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectedEndDate", DbType="Date NOT NULL")]
+		public System.DateTime ExpectedEndDate
+		{
+			get
+			{
+				return this._ExpectedEndDate;
+			}
+			set
+			{
+				if ((this._ExpectedEndDate != value))
+				{
+					this.OnExpectedEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._ExpectedEndDate = value;
+					this.SendPropertyChanged("ExpectedEndDate");
+					this.OnExpectedEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualEndDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ActualEndDate
+		{
+			get
+			{
+				return this._ActualEndDate;
+			}
+			set
+			{
+				if ((this._ActualEndDate != value))
+				{
+					this.OnActualEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._ActualEndDate = value;
+					this.SendPropertyChanged("ActualEndDate");
+					this.OnActualEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstimatedCost", DbType="Int NOT NULL")]
+		public int EstimatedCost
+		{
+			get
+			{
+				return this._EstimatedCost;
+			}
+			set
+			{
+				if ((this._EstimatedCost != value))
+				{
+					this.OnEstimatedCostChanging(value);
+					this.SendPropertyChanging();
+					this._EstimatedCost = value;
+					this.SendPropertyChanged("EstimatedCost");
+					this.OnEstimatedCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualCost", DbType="Int")]
+		public System.Nullable<int> ActualCost
+		{
+			get
+			{
+				return this._ActualCost;
+			}
+			set
+			{
+				if ((this._ActualCost != value))
+				{
+					this.OnActualCostChanging(value);
+					this.SendPropertyChanging();
+					this._ActualCost = value;
+					this.SendPropertyChanged("ActualCost");
+					this.OnActualCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", DbType="Int NOT NULL")]
+		public int ClientID
+		{
+			get
+			{
+				return this._ClientID;
+			}
+			set
+			{
+				if ((this._ClientID != value))
+				{
+					if (this._Client.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnClientIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClientID = value;
+					this.SendPropertyChanged("ClientID");
+					this.OnClientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OMID", DbType="Int NOT NULL")]
+		public int OMID
+		{
+			get
+			{
+				return this._OMID;
+			}
+			set
+			{
+				if ((this._OMID != value))
+				{
+					if (this._OperationalManager.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOMIDChanging(value);
+					this.SendPropertyChanging();
+					this._OMID = value;
+					this.SendPropertyChanged("OMID");
+					this.OnOMIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Assign", Storage="_Assigns", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<Assign> Assigns
+		{
+			get
+			{
+				return this._Assigns;
+			}
+			set
+			{
+				this._Assigns.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_CaptureQuotation", Storage="_CaptureQuotations", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<CaptureQuotation> CaptureQuotations
+		{
+			get
+			{
+				return this._CaptureQuotations;
+			}
+			set
+			{
+				this._CaptureQuotations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Document", Storage="_Documents", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<Document> Documents
+		{
+			get
+			{
+				return this._Documents;
+			}
+			set
+			{
+				this._Documents.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_OMAssign", Storage="_OMAssigns", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<OMAssign> OMAssigns
+		{
+			get
+			{
+				return this._OMAssigns;
+			}
+			set
+			{
+				this._OMAssigns.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_PMFeedback", Storage="_PMFeedbacks", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<PMFeedback> PMFeedbacks
+		{
+			get
+			{
+				return this._PMFeedbacks;
+			}
+			set
+			{
+				this._PMFeedbacks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectAttachment", Storage="_ProjectAttachments", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<ProjectAttachment> ProjectAttachments
+		{
+			get
+			{
+				return this._ProjectAttachments;
+			}
+			set
+			{
+				this._ProjectAttachments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Recruit", Storage="_Recruits", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<Recruit> Recruits
+		{
+			get
+			{
+				return this._Recruits;
+			}
+			set
+			{
+				this._Recruits.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_SubmittedBy", Storage="_SubmittedBies", ThisKey="ProjectID", OtherKey="ProjectID")]
+		public EntitySet<SubmittedBy> SubmittedBies
+		{
+			get
+			{
+				return this._SubmittedBies;
+			}
+			set
+			{
+				this._SubmittedBies.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Project", Storage="_Client", ThisKey="ClientID", OtherKey="ClientID", IsForeignKey=true)]
+		public Client Client
+		{
+			get
+			{
+				return this._Client.Entity;
+			}
+			set
+			{
+				Client previousValue = this._Client.Entity;
+				if (((previousValue != value) 
+							|| (this._Client.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Client.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._Client.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._ClientID = value.ClientID;
+					}
+					else
+					{
+						this._ClientID = default(int);
+					}
+					this.SendPropertyChanged("Client");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OperationalManager_Project", Storage="_OperationalManager", ThisKey="OMID", OtherKey="OMID", IsForeignKey=true)]
+		public OperationalManager OperationalManager
+		{
+			get
+			{
+				return this._OperationalManager.Entity;
+			}
+			set
+			{
+				OperationalManager previousValue = this._OperationalManager.Entity;
+				if (((previousValue != value) 
+							|| (this._OperationalManager.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OperationalManager.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._OperationalManager.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._OMID = value.OMID;
+					}
+					else
+					{
+						this._OMID = default(int);
+					}
+					this.SendPropertyChanged("OperationalManager");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Assigns(Assign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_Assigns(Assign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_CaptureQuotations(CaptureQuotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_CaptureQuotations(CaptureQuotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_Documents(Document entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_Documents(Document entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_OMAssigns(OMAssign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_OMAssigns(OMAssign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_PMFeedbacks(PMFeedback entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_PMFeedbacks(PMFeedback entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_ProjectAttachments(ProjectAttachment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_ProjectAttachments(ProjectAttachment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_Recruits(Recruit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_Recruits(Recruit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+		
+		private void attach_SubmittedBies(SubmittedBy entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_SubmittedBies(SubmittedBy entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
 		}
 	}
 }

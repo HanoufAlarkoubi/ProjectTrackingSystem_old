@@ -27,33 +27,67 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="auto-style5">
-        <tr>
-            <td class="auto-style16">&nbsp;</td>
-            <td class="auto-style12">
-                <h3 class="auto-style14"><strong>Current Projects</strong></h3>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
-    <br />
-    <br />
-    <table class="auto-style5">
-        <tr>
-            <td class="auto-style9"></td>
-            <td class="auto-style13">
-                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" CssClass="auto-style15">
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#242121" />
-                </asp:GridView>
-            </td>
-            <td class="auto-style10"></td>
-        </tr>
-        </table>
+    <div class="jumbotron">
+  <h2 class="text-center">Current Projets</h2>
+         <div>
+       <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnRowCommand="GridView2_RowCommand">
+           <Columns>
+               <asp:BoundField  HeaderText="Project Name"> 
+               <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Expected Start Date" DataFormatString="{0:d}" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Actual Start Date" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Expected End Date" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Actual End Date" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Status" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Description" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Estimated Cost" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Actual Cost" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Client Name" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:BoundField HeaderText="Operational Manager Name" >
+                   <HeaderStyle BackColor="#2C2A77" BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"  />
+               </asp:BoundField>
+               <asp:TemplateField HeaderText="Selection">
+                   <ItemTemplate>
+                       <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Select" OnClick="LinkButton1_Click">View Detail</asp:LinkButton>
+                   </ItemTemplate>
+               </asp:TemplateField>
+           </Columns>
+           <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+           <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+           <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+           <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+           <SortedAscendingCellStyle BackColor="#F7F7F7" />
+           <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+           <SortedDescendingCellStyle BackColor="#E5E5E5" />
+           <SortedDescendingHeaderStyle BackColor="#242121" />
+           </asp:GridView>
+              </div>
+        <br />
+        <a href="#" class="btn btn-default" style="color: #FFFFFF; background-color: #2E2C78; margin-left: 723px;" runat="server" id="AddBtn" onserverclick="addBtn_Click">Add</a>
+        <button type="reset" class="btn btn-default">Cancel</button>
+        </div>
+
+        
+
+
+    
 </asp:Content>

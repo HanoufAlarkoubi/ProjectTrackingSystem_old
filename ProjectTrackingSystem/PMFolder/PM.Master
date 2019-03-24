@@ -4,6 +4,8 @@
 
 <html>
 <head runat="server">
+         <link href="../Content/bootstrap.css" rel="stylesheet" />
+
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -34,47 +36,43 @@
 <body bgcolor="#dbdde0">
     <form id="form1" runat="server">
         <div>
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Image ID="Image1" runat="server" BorderColor="Black" BorderStyle="Solid" ImageUrl="~/Image/ATS.png" />
-                    </td>
-                    <td class="auto-style5">
-                        <h1 class="auto-style3">Project Tracking System</h1>
-                    </td>
-                    <td class="auto-style7">
-                        <span class="auto-style3">Welcome, </span>
-                        <asp:Label ID="Label1" runat="server" CssClass="auto-style3"></asp:Label>
-                    </td>
-                    <td class="auto-style6">
-                        <asp:ImageButton ID="ImageButton1" runat="server" Height="16px" ImageUrl="~/Image/logout_1185552.png" OnClick="ImageButton1_Click" Width="28px" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style5">
-                        <hr />
-                        <br />
-                        <asp:Menu ID="Menu1" runat="server" ForeColor="#2C2979" Orientation="Horizontal">
-                            <Items>
-                                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/PMFolder/PMHome.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Assign Technical Employee" Value="Assign Technical Employee" NavigateUrl="~/PMFolder/AssignTE.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Approve Design Document" Value="Approve Design Document" NavigateUrl="~/PMFolder/ApproveDD.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Approve Purchase Order" Value="Approve Purchase Order" NavigateUrl="~/PMFolder/ApprovePO.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Approve Quotation" Value="Approve Quotation" NavigateUrl="~/PMFolder/ApproveQU.aspx"></asp:MenuItem>
-                            </Items>
-                        </asp:Menu>
-                        <hr />
-                    </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
-                </tr>
-            </table>
+           <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+         <ul class="nav navbar-nav navbar-left">
+                               <asp:Image ID="Image1" runat="server" ImageUrl="~/Image/ATS.png" Height="60px" ImageAlign="Middle" Width="90px"  />
+             </ul>
+      <a class="navbar-brand">Project Tracking System</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="~/PMFolder/PMHome.aspx" runat="server"> Home <span class="glyphicon glyphicon-home"><span class="sr-only"></span></a></li>
+        <li><a href="~/PMFolder/FeedbackPM.aspx"  runat="server"> Client Feedback <span class="glyphicon glyphicon-list-alt"></a></li>
+         
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li ><span class="navbar-text" > Welcome, </span></li>
+            
+            <li ><span  class="navbar-text" runat="server" ID="Label2" ></span></li>
+
+                                    <li >   <a href="~/Loginfolder/Login.aspx" CausesValidation="False" runat="server"> <span class="glyphicon glyphicon-off"></a></li>
+        </ul>
+    </div>
+      
+  </div>
+</nav>
         </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         <hr />
-            <span class="auto-style4" style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+            <span class="auto-style4" font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;" style="background-color: #FFFFFF">
             <br />
             © Copyright 2019</span><br />
     </form>

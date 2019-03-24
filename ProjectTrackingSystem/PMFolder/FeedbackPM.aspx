@@ -48,9 +48,29 @@
         .auto-style23 {
             text-align: right;
         }
+        .label-style1{
+            text-align: right;
+
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="well well-lg">
+        <h2 class="text-center">Client Feedback for Project: <label></label></h2>
+        
+<div class="panel panel-default">
+  <div class="panel-heading">  Work Performance <div class="label-style1">Agree Neutral Disagree</div></div>
+  <div class="panel-body">
+
+     <div class="text-left">
+           <label for="inputPN" class="auto-style43" >
+        <div class="auto-style43">Q1. Was the work completed as per schedule? </div> </label>
+       
+  </div>
+      </div>
+</div>
+
+    </div>
     <table class="auto-style1">
         <tr>
             <td class="auto-style6">&nbsp;</td>

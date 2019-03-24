@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FMFolder/FM.Master" AutoEventWireup="true" CodeBehind="SearchResult.aspx.cs" Inherits="ProjectTrackingSystem.FMFolder.WebForm4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    </asp:Content>
+    <style type="text/css">
+        .auto-style5 {
+            text-align: center;
+        }
+    </style>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="jumbotron">
   <h2 class="text-center">Search Results</h2>

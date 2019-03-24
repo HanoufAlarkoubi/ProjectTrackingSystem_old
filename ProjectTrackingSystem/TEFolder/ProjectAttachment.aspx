@@ -1,45 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TEFolder/TE.Master" AutoEventWireup="true" CodeBehind="ProjectAttachment.aspx.cs" Inherits="ProjectTrackingSystem.TEFolder.WebForm6" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style8 {
-            text-align: center;
-            width: 930px;
-        }
-        .auto-style9 {
-            width: 930px;
-        }
         .auto-style10 {
             width: 279px;
+            margin-left: 636px;
         }
-        .auto-style11 {
-            margin-left: 51px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="auto-style5">
-        <tr>
-            <td class="auto-style10">&nbsp;</td>
-            <td class="auto-style8">
-                <h3>Upload Project Attachment</h3>
-                <p>
-                    &nbsp;</p>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style10">&nbsp;</td>
-            <td class="auto-style8">
-                <asp:FileUpload ID="FileUpload1" runat="server" CssClass="auto-style11" />
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style10">&nbsp;</td>
-            <td class="auto-style9">&nbsp;</td>
-            <td>
-                <asp:Button ID="Button1" runat="server" Text="Submit Attachment" />
-            </td>
-        </tr>
-    </table>
+     <div class="jumbotron">
+  <h2 class="text-center">Upload Design Document</h2>
+       <div class="text-center">
+                      <br />
+
+           <br />
+<asp:FileUpload ID="FileUpload2" runat="server" CssClass="auto-style10" />
+       </div>
+       <br />
+       <br />
+<a href="#" class="btn btn-default" style="color: #FFFFFF; background-color: #2E2C78; margin-left: 723px;" runat="server" id="AddBtn" onserverclick="addBtn_Click">Add</a>
+        <button type="reset" class="btn btn-default">Cancel</button></div>
+
+    
 </asp:Content>
