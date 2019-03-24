@@ -1,62 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TEFolder/TE.Master" AutoEventWireup="true" CodeBehind="ProjectDetailsTE.aspx.cs" Inherits="ProjectTrackingSystem.TEFolder.WebForm7" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style8 {
-            text-align: center;
-        }
-        .auto-style9 {
-            text-align: right;
-            width: 135px;
-        }
-        .auto-style10 {
-            width: 70px;
-        }
-        .auto-style11 {
-            text-align: left;
-            width: 179px;
-        }
-        .auto-style34 {
-            display: inline-block;
-            width: 22%;
-            height: 38px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #555555;
-            border-radius: 4px;
-            box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.075);
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            border: 1px solid #e7e7e7;
-            padding: 7px 12px;
-            background-color: #ffffff;
-            background-image: none;
-        }
-        .auto-style35 {
-            margin-left: 42px;
-        }
-        .auto-style36 {
-            margin-left: 22px;
-        }
-        .auto-style37 {
-            margin-left: 7px;
-        }
-        .auto-style38 {
-            margin-left: 24px;
-        }
-        .auto-style39 {
-            margin-left: 84px;
-        }
-        .auto-style40 {
-            margin-left: 50px;
-        }
-        .auto-style41 {
-            margin-left: 26px;
-        }
-        .auto-style42 {
-            margin-left: 49px;
-        }
         .auto-style43 {
             margin-left: 0px;
+                        display: inline-block;
+
         }
+        .auto-style44 {
+            margin-left: 594px;
+        }
+        
     </style>
 </asp:Content>
 
@@ -125,6 +78,55 @@
       <br />
   </div>
 </div>
-</div>
+       <div class="panel panel-default">
+  <div class="panel-heading">Upload Design Document</div>
+  <div class="panel-body">
+  <br />
+
+           <div class="text-left">
+           <label for="inputDN" class="auto-style43" >
+        <div class="auto-style45"> Design Name: </div> </label>
+        <span  class="panel-heading" runat="server" ID="Span11" ></span></div>
+      <br />
+
+       <div class="text-left">
+           <label for="inputDS" class="auto-style43" >
+        <div class="auto-style45"> Design Status: </div> </label>
+        <span  class="panel-heading" runat="server" ID="Span12" ></span></div>
+      <br />
+
+
+      <div class="text-left">
+           <label for="inputDD" class="auto-style43" >
+        <div class="auto-style45"> Design Description: </div> </label>
+        <span  class="panel-heading" runat="server" ID="Span13" ></span></div>
+      <br />
+
+       <div class="text-left"> Please upload design document: 
+       </div><asp:FileUpload ID="FileUpload1" runat="server" CssClass="auto-style43" Width="286px" /></div> 
+
+       <br />
+     
+<a href="#" class="btn btn-default" style="color: #FFFFFF; background-color: #2E2C78; margin-left: 676px;" runat="server" id="AddBtn" onserverclick="addBtn_Click">Add</a>
+        <button type="reset" class="btn btn-default">Cancel</button> <br />
+       <br /></div>
+       <div class="panel panel-default">
+  <div class="panel-heading">Upload Purchase Order</div>
+  <div class="panel-body">
+  <br />
+              <div class="text-center"> Please upload purchase order: </div>
+
+           <br />
+<asp:FileUpload ID="FileUpload2" runat="server" CssClass="auto-style44" Width="286px" />
+       </div>
+       <br />
+     
+<a href="#" class="btn btn-default" style="color: #FFFFFF; background-color: #2E2C78; margin-left: 676px;" runat="server" id="A1" onserverclick="addBtn_Click">Add</a>
+        <button type="reset" class="btn btn-default">Cancel</button> <br />
+       <br /></div>
+      </div> <%--well div--%>
+
+
+
          
 </asp:Content>

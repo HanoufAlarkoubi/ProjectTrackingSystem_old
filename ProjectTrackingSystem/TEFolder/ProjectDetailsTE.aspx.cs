@@ -31,8 +31,14 @@ namespace ProjectTrackingSystem.TEFolder
             if(prid.Count()!=0)
             {
                 var prdet = prid.First();
-                Span3.InnerText = prdet.ExpectedEndDate.ToString("MM/dd/yyyy");
-
+                Span3.InnerText = prdet.ExpectedStartDate.ToString("MM/dd/yyyy");
+                Span4.InnerText= prdet.ActualStartDate.ToString();
+                Span5.InnerText= prdet.ExpectedEndDate.ToString("MM/dd/yyyy");
+                Span6.InnerText=prdet.ActualEndDate.ToString();
+                Span7.InnerText = prdet.Status;
+                Span8.InnerText = prdet.Description;
+                Span9.InnerText = prdet.EstimatedCost.ToString();
+                Span10.InnerText=prdet.ActualCost.ToString();
             }
 
         }
